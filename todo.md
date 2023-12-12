@@ -19,3 +19,8 @@
 [ ] nerdtree
 [x] popup terminal
 [ ] treesitter
+
+[ ] create script
+    [ ] install
+    [ ] uninstall
+    [ ] update

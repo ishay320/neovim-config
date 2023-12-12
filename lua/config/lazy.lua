@@ -43,4 +43,10 @@ require("lazy").setup({
 dependencies = {
 	"nvim-lua/plenary.nvim",
 },
+	'airblade/vim-gitgutter',
+  {
+  'stevearc/conform.nvim',
+  opts = {},
+  },
+  require("config.formatter"),
 })

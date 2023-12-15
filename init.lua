@@ -8,8 +8,6 @@ vim.wo.relativenumber = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-
-
 require("toggleterm").setup {
 	open_mapping = [[<c-\>]],
 }

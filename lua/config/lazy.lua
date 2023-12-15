@@ -20,7 +20,9 @@ require("lazy").setup({
 		lazy = false, -- load during startup 
 		priority = 1000, -- load this before all the other plugins
 	},
+
 	{'nvim-lualine/lualine.nvim'}, -- set the line at the buttom to be more informative
+
 	{ -- show popup of what key can be pressed next
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -30,23 +32,32 @@ require("lazy").setup({
 		end,
 		opts = {}
 	},
+
 	require("config.lsp"), -- lsp configurations
+
 	require("config.cmp"),
+
 	{ -- create popup terminal
 	'akinsho/toggleterm.nvim',
 	config = function()
 		require("toggleterm").setup()
 	end
-},
-"kdheepak/lazygit.nvim",
--- optional for floating window border decoration
-dependencies = {
-	"nvim-lua/plenary.nvim",
-},
+	},
+
+	{
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+
 	'airblade/vim-gitgutter',
-  {
-  'stevearc/conform.nvim',
-  opts = {},
-  },
-  require("config.formatter"),
+
+	{
+		'stevearc/conform.nvim',
+		opts = {},
+	},
+
+	require("config.formatter"),
 })

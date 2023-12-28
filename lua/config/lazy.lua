@@ -51,9 +51,7 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 		},
 	},
-
-	'airblade/vim-gitgutter',
-
+	'lewis6991/gitsigns.nvim',
 	{
 		'stevearc/conform.nvim',
 		opts = {},

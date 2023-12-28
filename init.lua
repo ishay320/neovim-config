@@ -1,12 +1,9 @@
 require("config.keymaps")
 require("config.lazy")
-require("config.colors")
+require("config.colors") -- TODO: make it start before all
+require("config.setting")
 
-
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+require('gitsigns').setup()
 
 require("toggleterm").setup {
 	open_mapping = [[<c-\>]],

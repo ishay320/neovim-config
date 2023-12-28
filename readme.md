@@ -8,7 +8,7 @@
 - `akinsho/toggleterm.nvim` -- toggleable terminal
 - `kdheepak/lazygit.nvim` -- git gui
   - `nvim-lua/plenary.nvim` -- floating window
-- `airblade/vim-gitgutter` -- show what changed
+- `lewis6991/gitsigns.nvim` -- show what changed
 
 ### LSP
 

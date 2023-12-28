@@ -4,8 +4,8 @@ return {
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
 		"williamboman/mason.nvim",
-		{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-		{ "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
+		{ "folke/neoconf.nvim", cmd = "Neoconf",                                config = true },
+		{ "folke/neodev.nvim",  opts = { experimental = { pathStrict = true } } },
 	},
 
 	config = function()

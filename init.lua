@@ -1,8 +1,4 @@
-require("config.keymaps")
-require("config.lazy")
-require("config.colors") -- TODO: make it start before all
-require("config.setting")
-
+require('core')
 require('gitsigns').setup()
 
 require("toggleterm").setup {

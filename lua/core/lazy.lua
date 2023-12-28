@@ -15,15 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 require("lazy").setup({
-	{ -- colorscheme
+	{              -- colorscheme
 		"folke/tokyonight.nvim",
-		lazy = false, -- load during startup 
+		lazy = false, -- load during startup
 		priority = 1000, -- load this before all the other plugins
 	},
 
-	{'nvim-lualine/lualine.nvim'}, -- set the line at the buttom to be more informative
+	{ 'nvim-lualine/lualine.nvim' }, -- set the line at the buttom to be more informative
 
-	{ -- show popup of what key can be pressed next
+	{                           -- show popup of what key can be pressed next
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		init = function()
@@ -33,15 +33,15 @@ require("lazy").setup({
 		opts = {}
 	},
 
-	require("config.lsp"), -- lsp configurations
+	require("core.lsp"), -- lsp configurations
 
-	require("config.cmp"),
+	require("core.cmp"),
 
 	{ -- create popup terminal
-	'akinsho/toggleterm.nvim',
-	config = function()
-		require("toggleterm").setup()
-	end
+		'akinsho/toggleterm.nvim',
+		config = function()
+			require("toggleterm").setup()
+		end
 	},
 
 	{
@@ -57,25 +57,25 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	require("config.formatter"),
+	require("core.formatter"),
 
 	{
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function ()
-      local configs = require("nvim-treesitter.configs")
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			local configs = require("nvim-treesitter.configs")
 
-      configs.setup({
-		  auto_install = true,
-		  modules = {},
-		  ignore_install = {},
-          ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
-          sync_install = false,
-          highlight = { enable = true },
-          indent = { enable = true },
-        })
-    end
- 	},
+			configs.setup({
+				auto_install = true,
+				modules = {},
+				ignore_install = {},
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true },
+			})
+		end
+	},
 
 	'HiPhish/nvim-ts-rainbow2',
 })

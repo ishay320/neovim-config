@@ -1,4 +1,4 @@
-vim.g.mapleader = " " -- leader
+vim.g.mapleader = " "                -- leader
 
 vim.keymap.set("n", "-", vim.cmd.Ex) -- set explorer to '-'
 

@@ -18,3 +18,7 @@
 - `folke/neodev.nvim` -- show the docs in completion
 
 ## how to install
+
+```sh
+$ sudo pacman -S ripgrep
+```

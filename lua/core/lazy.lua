@@ -23,7 +23,7 @@ require("lazy").setup({
 
 	{ 'nvim-lualine/lualine.nvim' }, -- set the line at the buttom to be more informative
 
-	{                           -- show popup of what key can be pressed next
+	{                             -- show popup of what key can be pressed next
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		init = function()
@@ -78,4 +78,6 @@ require("lazy").setup({
 	},
 
 	'HiPhish/nvim-ts-rainbow2',
+
+	'nvim-telescope/telescope.nvim',
 })

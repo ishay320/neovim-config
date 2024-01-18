@@ -1,5 +1,6 @@
-require("core.keymaps")
-require("core.lazy")
-require("core.colors") -- TODO: make it start before all
-require("core.setting")
-require("core.telescope")
+require('core.setting')
+require('core.keymap')
+require('core.lazy')
+require('core.colors')
+require('core.telescope')
+require('core.lazygit')

@@ -11,54 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Example using a list of specs with the default options
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
-
 require("lazy").setup({
-	{              -- colorscheme
-		"folke/tokyonight.nvim",
-		lazy = false, -- load during startup
-		priority = 1000, -- load this before all the other plugins
-	},
-
+	{ "catppuccin/nvim",    name = "catppuccin", priority = 1000 },
+	"folke/which-key.nvim",
+	{ "folke/neoconf.nvim", cmd = "Neoconf" },
+	"folke/neodev.nvim",
+	require('core.lsp'),
 	{ 'nvim-lualine/lualine.nvim' }, -- set the line at the buttom to be more informative
-
-	{                             -- show popup of what key can be pressed next
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-		opts = {}
-	},
-
-	require("core.lsp"), -- lsp configurations
-
-	require("core.cmp"),
-
-	{ -- create popup terminal
-		'akinsho/toggleterm.nvim',
-		config = function()
-			require("toggleterm").setup()
-		end
-	},
-
-	{
-		"kdheepak/lazygit.nvim",
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
 	'lewis6991/gitsigns.nvim',
-	{
-		'stevearc/conform.nvim',
-		opts = {},
-	},
-
-	require("core.formatter"),
-
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -69,15 +29,24 @@ require("lazy").setup({
 				auto_install = true,
 				modules = {},
 				ignore_install = {},
-				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "html" },
+				ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "query", "javascript", "html" },
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
 			})
 		end
 	},
-
-	'HiPhish/nvim-ts-rainbow2',
-
-	'nvim-telescope/telescope.nvim',
+	'HiPhish/rainbow-delimiters.nvim',
+	{
+		'nvim-telescope/telescope.nvim',
+		branch = '0.1.x',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
 })

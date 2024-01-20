@@ -13,7 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ "catppuccin/nvim",    name = "catppuccin", priority = 1000 },
-	"folke/which-key.nvim",
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {}
+	},
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	"folke/neodev.nvim",
 	require('core.lsp'),

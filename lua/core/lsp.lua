@@ -67,6 +67,18 @@ return {
 				lsp_zero.default_keymaps({ buffer = bufnr })
 			end)
 
+			require("lspconfig").clangd.setup {
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--fallback-style=webkit",
+					"--clang-tidy",
+					"--background-index",
+					"--suggest-missing-includes",
+					"--pch-storage=memory",
+					"--completion-style=detailed",
+				}
+			}
 			require('mason-lspconfig').setup({
 				ensure_installed = { 'lua_ls', 'clangd', 'cmake', 'jsonls', 'pyre', 'tsserver', 'bashls', 'marksman' },
 				handlers = {

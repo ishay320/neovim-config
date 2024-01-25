@@ -18,4 +18,9 @@ wk.register({
 		},
 		q = { "Diagnostics" },
 	},
+	["g"] = {
+		d = { "go to definition" },
+		D = { "go to declaration" },
+		i = { "Lists all the implementations" },
+	},
 })

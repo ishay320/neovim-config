@@ -66,6 +66,12 @@ require("lazy").setup({
 			dependencies = { "nvim-lua/plenary.nvim" },
 			opts = {}
 		},
+		"tpope/vim-commentary",
+		{
+			'akinsho/toggleterm.nvim',
+			version = "*",
+			config = true
+		},
 	},
 
 	{

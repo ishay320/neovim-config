@@ -1,3 +1,5 @@
+-- TODO: Add this to formatter: %!clang-format --style="{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 80, AlignConsecutiveAssignments: true, BreakBeforeBraces: Stroustrup}"
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -162,16 +164,7 @@ require("lazy").setup({
 			},
 		},
 	},
-
-	{
-		"kdheepak/lazygit.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- optional for floating window border decoration
-		},
-		keys = {
-			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-		},
-	},
+	{ "tpope/vim-fugitive" },
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	--

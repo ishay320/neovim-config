@@ -10,6 +10,9 @@ vim.g.have_nerd_font = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 --  For more options, you can see `:help option-list`
+
+-- Add squiggly line under wrongly spelled word
+-- `z=` for fix list
 vim.opt.spell = true
 
 -- Make line numbers default
@@ -512,14 +515,16 @@ require("lazy").setup({
 			end,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- TODO: Add this to formatter: %!clang-format --style="{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 80, AlignConsecutiveAssignments: true, BreakBeforeBraces: Stroustrup}"
-				cpp = { "clang-format" },
-				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
+				cpp = {
+					"clang_format",
+				},
+			},
+			formatters = {
+				clang_format = {
+					prepend_args = {
+						"--style={ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 80, AlignConsecutiveAssignments: true, BreakBeforeBraces: Stroustrup}",
+					},
+				},
 			},
 		},
 	},
@@ -761,6 +766,20 @@ require("lazy").setup({
 		},
 	},
 })
+
+-- Help Functions
+function _G.put_text(...)
+	local objects = {}
+	for i = 1, select("#", ...) do
+		local v = select(i, ...)
+		table.insert(objects, vim.inspect(v))
+	end
+
+	local lines = vim.split(table.concat(objects, "\n"), "\n")
+	local lnum = vim.api.nvim_win_get_cursor(0)[1]
+	vim.fn.append(lnum, lines)
+	return ...
+end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -11,6 +11,9 @@ vim.g.have_nerd_font = true
 -- See `:help vim.opt`
 --  For more options, you can see `:help option-list`
 
+-- add all the folders in the project to the search path
+vim.opt.path = vim.opt.path + "**"
+
 -- Add squiggly line under wrongly spelled word
 -- `z=` for fix list
 vim.opt.spell = true
@@ -139,11 +142,19 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-
+	"ThePrimeagen/vim-be-good",
 	-- Use `opts = {}` to force a plugin to be loaded.
 	--
 	--  This is equivalent to:
 	--    require('Comment').setup({})
+	-- automaticly add brackets and also when typing them - jump on them
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equalent to setup({}) function
+	},
 
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
@@ -453,7 +464,7 @@ require("lazy").setup({
 								callSnippet = "Replace",
 							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
+							-- diagnostics = { disable = { "missing-fields" } },
 						},
 					},
 				},

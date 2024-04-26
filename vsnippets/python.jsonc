@@ -1,0 +1,52 @@
+{
+	"Not implemented yet": {
+		"prefix": "assert not implemented",
+		"body": [
+			"assert False, \"not implemented yet\""
+		],
+		"description": "Not implemented yet assertion"
+	},
+	"Main": {
+		"prefix": "main",
+		"body": [
+			"if __name__ == \"__main__\":",
+			"\t${0:pass}"
+		],
+		"description": "If name is main"
+	},
+	"class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:name}:",
+			"\tdef __init__(self) -> None:",
+			"\t\t${0:pass}"
+		],
+		"description": "Create class"
+	},
+	"try exept": {
+		"prefix": "try",
+		"body": [
+			"try:",
+			"\t${1:pass}",
+			"except ${2:Exception} as ${3:err}:",
+			"\t${4:print(err)}"
+		],
+		"description": "try exept block"
+	},
+	"def": {
+		"prefix": "def",
+		"body": [
+			"def ${1:name}(${2:args}):",
+			"\t${0:pass}",
+		],
+		"description": "try exept block"
+	},
+	"for": {
+		"prefix": "fori",
+		"body": [
+			"for ${1:i} in range(${2:10}):",
+			"\t${0:pass}"
+		],
+		"description": "for range"
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"add Typedef Struct": {
+		"prefix": "typedef struct",
+		"body": [
+			"typedef struct $1{",
+			"$0",
+			"} ${2:$1};"
+		],
+		"description": "add Typedef Struct"
+	},
+	"probe": {
+		"prefix": "probe",
+		"body": [
+			"printf(\"\\033[3${2:3}m%s:%d %s \\033[0m ${1:***********}\\n\", __FILE__, __LINE__, __FUNCTION__);"
+		],
+		"description": "probe code"
+	},
+	"c once": {
+		"prefix": [
+			"once",
+			"ifndef"
+		],
+		"body": [
+			"#ifndef ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
+			"#define ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
+			"${0}",
+			"#endif // ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
+		],
+		"description": "ifndef for includes"
+	}
+}

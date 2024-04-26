@@ -177,6 +177,11 @@ require("lazy").setup({
 			},
 		},
 	},
+
+	-- ]c               - advance to the next block with differences
+	-- [c               - reverse search for the previous block with differences
+	-- do (diff obtain) - bring changes from the other file to the current file
+	-- dp (diff put)    - send changes from the current file to the other file
 	{ "tpope/vim-fugitive" },
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.

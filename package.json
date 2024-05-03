@@ -11,7 +11,7 @@
                     "global",
                     "all"
                 ],
-                "path": "./vsnippets/global_staff.jsonc"
+                "path": "./vsnippets/global_stuff.jsonc"
             },
             {
                 "language": "c",

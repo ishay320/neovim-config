@@ -12,8 +12,9 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- add all the folders in the project to the search path
-vim.opt.path = vim.opt.path + "**"
-
+-- TODO: make this path using a function with search
+vim.opt.path = vim.opt.path + "**" + "/usr/include/c++/13.2.1/" + "/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/"
+vim.g.netrw_keepdir = 0
 -- Add squiggly line under wrongly spelled word
 -- `z=` for fix list
 vim.opt.spell = true
@@ -147,7 +148,6 @@ require("lazy").setup({
 	--
 	--  This is equivalent to:
 	--    require('Comment').setup({})
-	-- automaticly add brackets and also when typing them - jump on them
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -156,6 +156,7 @@ require("lazy").setup({
 		-- this is equalent to setup({}) function
 	},
 
+	-- automaticly add brackets and also when typing them - jump on them
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
@@ -446,7 +447,30 @@ require("lazy").setup({
 			--  - settings (table): Override the default settings passed when initializing the server.
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
-				clangd = {},
+				clangd = {
+					cmd = {
+						"clangd",
+						"--all-scopes-completion",
+						"--background-index",
+						"--clang-tidy",
+						"--compile_args_from=filesystem", -- lsp-> does not come from compie_commands.json
+						"--completion-parse=always",
+						"--completion-style=bundled",
+						"--cross-file-rename",
+						"--debug-origin",
+						"--enable-config", -- clangd 11+ supports reading from .clangd configuration file
+						"--fallback-style=Qt",
+						"--folding-ranges",
+						"--function-arg-placeholders",
+						"--header-insertion=iwyu",
+						"--pch-storage=memory", -- could also be disk
+						"--suggest-missing-includes",
+						"-j=4", -- number of workers
+						-- "--resource-dir="
+						"--log=error",
+						--[[ "--query-driver=/usr/bin/g++", ]]
+					},
+				},
 				-- gopls = {},
 				pyright = {},
 				-- rust_analyzer = {},

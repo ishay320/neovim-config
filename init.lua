@@ -13,7 +13,7 @@ vim.g.have_nerd_font = true
 
 -- add all the folders in the project to the search path
 -- TODO: make this path using a function with search
-vim.opt.path = vim.opt.path + "**" + "/usr/include/c++/13.2.1/" + "/usr/include/c++/13.2.1/x86_64-pc-linux-gnu/"
+vim.opt.path = vim.opt.path + "**" + "/usr/include/c++/**"
 vim.g.netrw_keepdir = 0
 -- Add squiggly line under wrongly spelled word
 -- `z=` for fix list
@@ -103,19 +103,19 @@ vim.keymap.set("n", "<leader>t", function()
 		end
 	end
 	-- Get the current buffer
-	local currentBuffer = vim.fn.bufnr("%")
+	local currentBuffer = vim.fn.bufnr()
 
 	-- If the current buffer is a terminal buffer, switch to the previous buffer
 	if vim.tbl_contains(terminalBuffers, currentBuffer) then
-		vim.cmd("b#")
+		vim.cmd.buffer("#")
 		print("jump back")
 	else
 		-- If there are terminal buffers, switch to the first one
 		if #terminalBuffers > 0 then
-			vim.cmd("buffer " .. terminalBuffers[1])
+			vim.cmd.buffer(terminalBuffers[1])
 		else
+			vim.cmd.terminal()
 			print("No terminal buffers found, creating new one")
-			vim.cmd("terminal")
 		end
 	end
 end, { desc = "Toggle terminal" })

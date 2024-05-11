@@ -52,8 +52,19 @@
 			"#ifndef ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
 			"#define ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
 			"${0}",
-			"#endif // ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
+			"#endif // ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H"
 		],
 		"description": "ifndef for includes"
+	},
+	"timeit": {
+		"prefix": [
+			"timeit"
+		],
+		"body": [
+			"auto start = std::chrono::high_resolution_clock::now();",
+			"${0}",
+			"std::cout << \"Time taken: \" << std::chrono::duration_cast<std::chrono::milliseconds>( std::chrono::high_resolution_clock::now() - start) .count() << \" milliseconds\" << std::endl;"
+		],
+		"description": "time the object in the middle"
 	}
 }

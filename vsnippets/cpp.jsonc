@@ -1,0 +1,70 @@
+{
+	"enum": {
+		"prefix": "enum",
+		"body": [
+			"enum $1{",
+			"$0",
+			"};"
+		],
+		"description": "Enumeration"
+	},
+	"probe": {
+		"prefix": "probe",
+		"body": [
+			"std::cout << \"\\033[3${2:3}m\" << __FILE__ << ':' << __LINE__ << \" \" << __FUNCTION__ << \" \\033[0m\" << ${1:\" *********** \"} << \"\\n\";"
+		],
+		"description": "probing statement"
+	},
+	"assert": {
+		"prefix": "assert",
+		"body": [
+			"assert(false && \"function not implemented yet\");"
+		],
+		"description": "assert statement"
+	},
+	"typedef": {
+		"prefix": "typedefstruct",
+		"body": [
+			"typedef struct",
+			"{",
+			"\t${0:/* data */}",
+			"}$1;"
+		],
+		"description": "typedef struct combo"
+	},
+	"do once": {
+		"prefix": "do once",
+		"body": [
+			"static bool __foo = [=]() -> bool",
+			"{",
+			"   $1",
+			"   return true;",
+			"}();"
+		],
+		"description": "typedef struct combo"
+	},
+	"c once": {
+		"prefix": [
+			"once",
+			"ifndef"
+		],
+		"body": [
+			"#ifndef ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
+			"#define ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
+			"${0}",
+			"#endif // ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H"
+		],
+		"description": "ifndef for includes"
+	},
+	"timeit": {
+		"prefix": [
+			"timeit"
+		],
+		"body": [
+			"auto start = std::chrono::high_resolution_clock::now();",
+			"${0}",
+			"std::cout << \"Time taken: \" << std::chrono::duration_cast<std::chrono::milliseconds>( std::chrono::high_resolution_clock::now() - start) .count() << \" milliseconds\" << std::endl;"
+		],
+		"description": "time the object in the middle"
+	}
+}

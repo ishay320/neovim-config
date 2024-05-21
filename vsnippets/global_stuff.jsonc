@@ -1,0 +1,12 @@
+{
+	"TODO": {
+		"prefix": "TODO",
+		"body": "$LINE_COMMENT TODO: ${1:Implement this}",
+		"description": "Adds a TODO"
+	},
+	"FIXME": {
+		"prefix": "FIXME",
+		"body": "$LINE_COMMENT FIXME: ${1:I`m broken}",
+		"description": "Adds a FIXME"
+	}
+}

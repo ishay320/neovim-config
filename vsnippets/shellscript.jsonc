@@ -1,0 +1,18 @@
+{
+	"Function Description": {
+		"prefix": [
+			"description",
+			"function description"
+		],
+		"body": [
+			"\t# ----------------------------------------------------------------",
+			"\t# Function ${1:for doing some stuff}",
+			"${2:\t#     Accepts ${3:1} argument:",
+			"\t#         ${4:string containing stuff}",
+			"\t}",
+			"\t#     Returns ${5:nothing}",
+			"\t# ----------------------------------------------------------------"
+		],
+		"description": "Add function description for function"
+	}
+}

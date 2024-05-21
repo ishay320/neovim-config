@@ -12,9 +12,8 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- add all the folders in the project to the search path
--- TODO: make this path using a function with search
 vim.opt.path = vim.opt.path + "**" + "/usr/include/c++/**"
-vim.g.netrw_keepdir = 0
+
 -- Add squiggly line under wrongly spelled word
 -- `z=` for fix list
 vim.opt.spell = true

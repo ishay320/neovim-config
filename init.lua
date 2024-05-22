@@ -186,7 +186,15 @@ require("lazy").setup({
 		event = "InsertEnter",
 		config = true,
 	},
-
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 	-- automaticly add brackets and also when typing them - jump on them
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },

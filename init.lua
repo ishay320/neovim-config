@@ -12,9 +12,8 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- add all the folders in the project to the search path
--- TODO: make this path using a function with search
 vim.opt.path = vim.opt.path + "**" + "/usr/include/c++/**"
-vim.g.netrw_keepdir = 0
+
 -- Add squiggly line under wrongly spelled word
 -- `z=` for fix list
 vim.opt.spell = true
@@ -187,7 +186,15 @@ require("lazy").setup({
 		event = "InsertEnter",
 		config = true,
 	},
-
+	{
+		"stevearc/aerial.nvim",
+		opts = {},
+		-- Optional dependencies
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 	-- automaticly add brackets and also when typing them - jump on them
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
@@ -717,7 +724,12 @@ require("lazy").setup({
 		end,
 	},
 
-	{
+	{ -- You can easily change to a different colorscheme.
+		-- Change the name of the colorscheme plugin below, and then
+		-- change the command in the config to whatever the name of that colorscheme is.
+		--
+		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+		-- "folke/tokyonight.nvim",
 		"catppuccin/nvim",
 
 		priority = 1000, -- Make sure to load this before all the other start plugins.

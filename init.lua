@@ -175,6 +175,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
+	"tpope/vim-abolish",
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"ThePrimeagen/vim-be-good",
 	-- Use `opts = {}` to force a plugin to be loaded.
@@ -252,6 +253,19 @@ require("lazy").setup({
 				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
 				["<leader>f"] = { name = "[F]inde", _ = "which_key_ignore" },
 				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
+
+				-- abolish
+				["cr"] = { "abolish replace case" },
+				["crc"] = { "camelCase" },
+				["crp"] = { "PascalCase" },
+				["crm"] = { "MixedCase" },
+				["cr_"] = { "snake_case" },
+				["crs"] = { "snake_case" },
+				["cru"] = { "SNAKE_UPPERCASE" },
+				["crU"] = { "SNAKE_UPPERCASE" },
+				["crk"] = { "kebab-case" },
+				["cr."] = { "dot.case" },
+				["cr-"] = { "dash-case" },
 			})
 		end,
 	},

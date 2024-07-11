@@ -175,6 +175,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
+	{
+		"OXY2DEV/markview.nvim",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	"tpope/vim-abolish",
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically

@@ -252,28 +252,30 @@ require("lazy").setup({
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>f"] = { name = "[F]inde", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-
-				-- abolish
-				["cr"] = { "abolish replace case" },
-				["crc"] = { "camelCase" },
-				["crp"] = { "PascalCase" },
-				["crm"] = { "MixedCase" },
-				["cr_"] = { "snake_case" },
-				["crs"] = { "snake_case" },
-				["cru"] = { "SNAKE_UPPERCASE" },
-				["crU"] = { "SNAKE_UPPERCASE" },
-				["crk"] = { "kebab-case" },
-				["cr."] = { "dot.case" },
-				["cr-"] = { "dash-case" },
+			local wk = require("which-key")
+			wk.setup()
+			wk.add({
+				{ "<leader>c", group = "[C]ode" },
+				{ "<leader>c_", hidden = true },
+				{ "<leader>d", group = "[D]ocument" },
+				{ "<leader>d_", hidden = true },
+				{ "<leader>f", group = "[F]inde" },
+				{ "<leader>f_", hidden = true },
+				{ "<leader>r", group = "[R]ename" },
+				{ "<leader>r_", hidden = true },
+				{ "<leader>w", group = "[W]orkspace" },
+				{ "<leader>w_", hidden = true },
+				{ "cr", desc = "abolish replace case" },
+				{ "cr-", desc = "dash-case" },
+				{ "cr.", desc = "dot.case" },
+				{ "crU", desc = "SNAKE_UPPERCASE" },
+				{ "cr_", desc = "snake_case" },
+				{ "crc", desc = "camelCase" },
+				{ "crk", desc = "kebab-case" },
+				{ "crm", desc = "MixedCase" },
+				{ "crp", desc = "PascalCase" },
+				{ "crs", desc = "snake_case" },
+				{ "cru", desc = "SNAKE_UPPERCASE" },
 			})
 		end,
 	},

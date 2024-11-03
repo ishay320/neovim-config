@@ -176,6 +176,13 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
 	{
+		"mbbill/undotree",
+
+		config = function()
+			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+		end,
+	},
+	{
 		"OXY2DEV/markview.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
@@ -231,7 +238,12 @@ require("lazy").setup({
 	-- [c               - reverse search for the previous block with differences
 	-- do (diff obtain) - bring changes from the other file to the current file
 	-- dp (diff put)    - send changes from the current file to the other file
-	{ "tpope/vim-fugitive" },
+	{
+		"tpope/vim-fugitive",
+		config = function()
+			vim.keymap.set("n", "<leader>gg", "<cmd>G<cr>", { desc = "[G]it [G]it" })
+		end,
+	},
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	--
@@ -265,6 +277,7 @@ require("lazy").setup({
 				{ "<leader>r_", hidden = true },
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
+				{ "<leader>g", group = "[G]it" },
 				{ "cr", desc = "abolish replace case" },
 				{ "cr-", desc = "dash-case" },
 				{ "cr.", desc = "dot.case" },

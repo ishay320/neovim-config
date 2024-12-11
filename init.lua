@@ -694,6 +694,12 @@ require("lazy").setup({
 						"rafamadriz/friendly-snippets",
 						config = function()
 							require("luasnip.loaders.from_vscode").lazy_load()
+
+							require("luasnip").filetype_extend("sh", { "shelldoc" })
+							require("luasnip").filetype_extend("lua", { "luadoc" })
+							require("luasnip").filetype_extend("python", { "pydoc" })
+							require("luasnip").filetype_extend("c", { "cdoc" })
+							require("luasnip").filetype_extend("cpp", { "cppdoc" })
 						end,
 					},
 				},
@@ -778,7 +784,7 @@ require("lazy").setup({
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "VeryLazy",
-		opts = {},
+		opts = { floating_window_off_x = 30 },
 		config = function(_, opts)
 			require("lsp_signature").setup(opts)
 		end,

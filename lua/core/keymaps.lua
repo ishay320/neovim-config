@@ -59,18 +59,19 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- My key binds
-vim.keymap.set("n", "-", vim.cmd.Ex) -- set explorer to '-'
+-- netrw explorer shortcut
+vim.keymap.set("n", "-", vim.cmd.Ex)
 
--- move line
+-- move lines up and down
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>", { desc = "Move line up" })
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>", { desc = "Move line down" })
 
-vim.g.autoformat = true
+-- autoformat
 vim.keymap.set("n", "<leader>af", function()
 	vim.g.autoformat = not vim.g.autoformat
 	print("autoformat is now " .. tostring(vim.g.autoformat))
 end, { desc = "Toggle autoformat" })
 
+-- go to next git change
 vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", { desc = "Go to previews git hunk" })
 vim.keymap.set("n", "]h", ":Gitsigns next_hunk<CR>", { desc = "Go to next git hunk" })

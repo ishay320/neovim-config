@@ -7,6 +7,9 @@ vim.g.maplocalleader = " "
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
+-- autoformat on close
+vim.g.autoformat = true
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 --  For more options, you can see `:help option-list`
@@ -88,3 +91,7 @@ function _G.put_text(...)
 	vim.fn.append(lnum, lines)
 	return ...
 end
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25

@@ -1,4 +1,7 @@
 return {
+	-- add icons to netrw
+	{ "prichrd/netrw.nvim", opts = {} },
+
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
@@ -32,6 +35,7 @@ return {
 		end,
 	},
 
+	-- markdown view in normal mode
 	{
 		"OXY2DEV/markview.nvim",
 		dependencies = {
@@ -40,6 +44,7 @@ return {
 		},
 	},
 
+	-- show functions signatures
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "VeryLazy",
@@ -53,21 +58,25 @@ return {
 		end,
 	},
 
-	{ -- Highlight todo, notes, etc in comments
+	-- Highlight todo, notes, etc in comments
+	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
 
+	-- show the line with all the data down there
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
 	},
 
+	-- color the open&close parentheses
 	{ "HiPhish/rainbow-delimiters.nvim", opt = {} },
 
+	-- show color for indent same as rainbow_delimiters
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",

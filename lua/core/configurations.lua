@@ -1,10 +1,9 @@
 -- [Basic configuration]
 -- Set <space> as the leader key
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set to true if you have a Nerd Font installed
+-- Set Nerd Font is installed
 vim.g.have_nerd_font = true
 
 -- autoformat on close

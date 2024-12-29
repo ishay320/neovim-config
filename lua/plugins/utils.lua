@@ -1,15 +1,16 @@
 return {
-	-- automaticly add brackets and also when typing them - jump on them
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
 
+	-- automatically add brackets and also when typing them - jump on them
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
 	},
 
-	{ -- Collection of various small independent plugins/modules
+	-- Collection of various small independent plugins/modules
+	{
 		"echasnovski/mini.nvim",
 		config = function()
 			-- Better Around/Inside textobjects
@@ -32,6 +33,7 @@ return {
 		end,
 	},
 
+	-- show undo history that you can jump between undos
 	{
 		"mbbill/undotree",
 		config = function()
@@ -39,7 +41,9 @@ return {
 		end,
 	},
 
-	"tpope/vim-abolish", -- This plugin enhances text substitution and abbreviations
+	-- This plugin enhances text substitution and abbreviations
+	{ "tpope/vim-abolish" },
 
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	-- Detect tabstop and shiftwidth automatically
+	{ "tpope/vim-sleuth" },
 }

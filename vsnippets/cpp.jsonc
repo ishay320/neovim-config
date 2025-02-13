@@ -22,16 +22,6 @@
 		],
 		"description": "assert statement"
 	},
-	"typedef": {
-		"prefix": "typedefstruct",
-		"body": [
-			"typedef struct",
-			"{",
-			"\t${0:/* data */}",
-			"}$1;"
-		],
-		"description": "typedef struct combo"
-	},
 	"do once": {
 		"prefix": "do once",
 		"body": [
@@ -41,7 +31,7 @@
 			"   return true;",
 			"}();"
 		],
-		"description": "typedef struct combo"
+		"description": "do somthing once"
 	},
 	"c once": {
 		"prefix": [

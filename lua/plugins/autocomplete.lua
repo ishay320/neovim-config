@@ -20,7 +20,7 @@ return {
 				--    See the README about individual language/framework/plugin snippets:
 				--    https://github.com/rafamadriz/friendly-snippets
 				{
-					"stevearc/vim-vscode-snippets", -- TODO: create my own instead of this
+					"rafamadriz/friendly-snippets", -- TODO: use my own / copy and remove what i dont need
 					config = function()
 						require("luasnip.loaders.from_vscode").lazy_load()
 

@@ -30,12 +30,16 @@ return {
 		formatters_by_ft = {
 			sh = { "shfmt" },
 			lua = { "stylua" },
-			cpp = {
-				"clang_format",
-			},
-			c = {
-				"clang_format",
-			},
+			cpp = { "clang_format" },
+			c = { "clang_format" },
+			python = { "black" },
+			markdown = { "prettier" },
+			json = { "prettier" },
+			yaml = { "prettier" },
+			html = { "prettier" },
+			css = { "prettier" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
 		},
 		formatters = {
 			clang_format = {

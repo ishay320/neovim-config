@@ -1,13 +1,5 @@
 {
 	"add Typedef Struct": {
-		"prefix": "typedef struct",
-		"body": [
-			"typedef struct $1{",
-			"$0",
-			"} ${2:$1};"
-		],
-		"description": "add Typedef Struct"
-	},
 	"probe": {
 		"prefix": "probe",
 		"body": [
@@ -27,5 +19,16 @@
 			"#endif // ${1:${TM_FILENAME_BASE/(.*)/${1:/upcase}/}}_H",
 		],
 		"description": "ifndef for includes"
+	} ,
+	"malloc_check": {
+		"prefix": "malloc_check",
+		"body": [
+			"${1:Type}* ${2:ptr} = malloc(${3:size} * sizeof(*${2:ptr}));",
+			"if (!${2:ptr}) {",
+			"    perror(\"malloc failed\");",
+			"    exit(1);",
+			"}"
+		],
+		"description": "Allocates memory with malloc and checks for failure"
 	}
 }

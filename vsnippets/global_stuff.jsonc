@@ -8,5 +8,20 @@
 		"prefix": "FIXME",
 		"body": "$LINE_COMMENT FIXME: ${1:I`m broken}",
 		"description": "Adds a FIXME"
+	},
+	"NOTE": {
+		"prefix": "NOTE",
+		"body": "$LINE_COMMENT NOTE: ${1:Important information}",
+		"description": "Adds a NOTE comment"
+	},
+	"BUG": {
+		"prefix": "BUG",
+		"body": "$LINE_COMMENT BUG: ${1:Describe the issue here}",
+		"description": "Adds a BUG comment"
+	},
+	"INFO": {
+		"prefix": "INFO",
+		"body": "$LINE_COMMENT INFO: ${1:Additional context}",
+		"description": "Adds an INFO comment"
 	}
 }

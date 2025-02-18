@@ -31,7 +31,7 @@
 			"   return true;",
 			"}();"
 		],
-		"description": "do somthing once"
+		"description": "do something once"
 	},
 	"c once": {
 		"prefix": [

@@ -1,6 +1,8 @@
 -- [[ Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Groups are in the ../plugins/ui.lua file
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -67,10 +69,10 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>", { desc = "Move line up" })
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>", { desc = "Move line down" })
 
 -- autoformat
-vim.keymap.set("n", "<leader>af", function()
+vim.keymap.set("n", "<leader>tf", function()
 	vim.g.autoformat = not vim.g.autoformat
 	print("autoformat is now " .. tostring(vim.g.autoformat))
-end, { desc = "Toggle autoformat" })
+end, { desc = "[T]oggle auto[F]ormat" })
 
 -- go to next git change
 vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", { desc = "Go to previews git hunk" })
@@ -80,3 +82,7 @@ vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "[G
 vim.keymap.set("n", "<leader>gi", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "[G]it [I]nline preview" })
 vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "[G]it [R]eset hunk" })
 vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "[G]it [S]tage hunk" })
+
+-- aerial
+-- there are also { and } for moving inside the aerial plugin from one symbol to the next
+vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")

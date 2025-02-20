@@ -6,7 +6,7 @@ require("core.autocommands")
 -- [[ Configure Plugins ]]
 require("lazy_init")
 require("lazy").setup({
-	spec = "plugins",
+	spec = { { import = "plugins" } },
 	change_detection = { notify = false },
 	install = { colorscheme = { "catppuccin-mocha" } },
 })

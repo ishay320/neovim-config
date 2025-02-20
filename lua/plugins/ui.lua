@@ -20,6 +20,8 @@ return {
 				{ "<leader>w", group = "[W]orkspace" },
 				{ "<leader>w_", hidden = true },
 				{ "<leader>g", group = "[G]it" },
+				{ "<leader>t", group = "[T]oggle" },
+				{ "<leader>t_", hidden = true },
 				{ "cr", desc = "abolish replace case" },
 				{ "cr-", desc = "dash-case" },
 				{ "cr.", desc = "dot.case" },

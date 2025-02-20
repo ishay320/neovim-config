@@ -75,3 +75,8 @@ end, { desc = "Toggle autoformat" })
 -- go to next git change
 vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", { desc = "Go to previews git hunk" })
 vim.keymap.set("n", "]h", ":Gitsigns next_hunk<CR>", { desc = "Go to next git hunk" })
+
+vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "[G]it [P]review" })
+vim.keymap.set("n", "<leader>gi", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "[G]it [I]nline preview" })
+vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "[G]it [R]eset hunk" })
+vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "[G]it [S]tage hunk" })

@@ -8,6 +8,7 @@ require("lazy_init")
 require("lazy").setup({
 	spec = "plugins",
 	change_detection = { notify = false },
+	install = { colorscheme = { "catppuccin-mocha" } },
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`

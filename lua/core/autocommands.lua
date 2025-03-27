@@ -11,3 +11,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	desc = "Disable spell checking in terminal mode",
+	pattern = "*",
+	callback = function()
+		vim.opt.spell = false
+	end,
+})

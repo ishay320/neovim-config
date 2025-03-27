@@ -3,46 +3,42 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set Nerd Font is installed
+-- Set Nerd Font as installed
 vim.g.have_nerd_font = true
 
--- autoformat on close
+-- Autoformat on close
 vim.g.autoformat = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
---  For more options, you can see `:help option-list`
 
--- add all the folders in the project to the search path
-vim.opt.path = vim.opt.path + "**" + "/usr/include/c++/**"
+-- Add all project folders and C++ includes to search path
+vim.opt.path:append({ "**", "/usr/include/c++/**" })
 
 -- Add squiggly line under wrongly spelled word
 -- `z=` for fix list
 vim.opt.spell = true
 
--- Make line numbers default
+-- Enable line numbers (relative + absolute hybrid)
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
--- Don't show the mode, since it's already in the status line
+-- Hide mode (since it's in the status line)
 vim.opt.showmode = false
 
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
+-- Sync clipboard between OS and Neovim
 -- vim.opt.clipboard = "unnamedplus"
 
--- Enable break indent
+-- Enable break indent for better readability
 vim.opt.breakindent = true
 
 -- Save undo history
 vim.opt.undofile = true
 
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+-- Smarter case-sensitive searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
@@ -66,16 +62,23 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
--- Preview substitutions live, as you type!
+-- Live preview for substitutions
 vim.opt.inccommand = "split"
 
--- Show which line your cursor is on
+-- Highlight current cursor line
 vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
+-- Keep at least 10 lines above/below the cursor when scrolling
 vim.opt.scrolloff = 10
 
+-- Indentation settings
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+-- Faster file reading and UI rendering
+vim.opt.lazyredraw = true
 
 -- Help Functions
 function _G.put_text(...)
@@ -91,5 +94,6 @@ function _G.put_text(...)
 	return ...
 end
 
+-- Improve netrw file explorer behavior
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0

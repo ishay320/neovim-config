@@ -65,4 +65,4 @@ vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "[G]i
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "[A]erial" })
 
 -- neogen
-vim.keymap.set("n", "<leader>n", "<cmd>Neogen!<CR>", { desc = "[N]eogen" })
+vim.keymap.set("n", "<leader>n", "<cmd>Neogen<CR>", { desc = "[N]eogen" })

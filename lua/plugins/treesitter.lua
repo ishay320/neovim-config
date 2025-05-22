@@ -19,6 +19,9 @@ return {
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
 		---@diagnostic disable-next-line: missing-fields
+		if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
+			require("nvim-treesitter.install").compilers = { "zig" }
+		end
 		require("nvim-treesitter.configs").setup(opts)
 
 		-- There are additional nvim-treesitter modules that you can use to interact

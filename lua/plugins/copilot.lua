@@ -56,15 +56,7 @@ return {
 		"CopilotC-Nvim/CopilotChat.nvim",
 		dependencies = { "zbirenbaum/copilot.lua" },
 		config = function()
-			require("CopilotChat").setup({
-				prompts = {
-					Commit = {
-						prompt = "Write a commit message using the commitizen convention.",
-						mapping = "<leader>ccm",
-						description = "Generate commit message",
-					},
-				},
-			})
+			require("CopilotChat").setup()
 		end,
 	},
 }

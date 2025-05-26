@@ -1,6 +1,9 @@
 return {
 	"zbirenbaum/copilot.lua",
 	build = ":Copilot auth",
+	event = "BufReadPost",
+	cmd = "Copilot",
+
 	config = function()
 		require("copilot").setup({
 			panel = {

@@ -6,7 +6,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"AndreM222/copilot-lualine",
 	},
-	config = {
+	opts = {
 		options = {
 			icons_enabled = true,
 			theme = "auto",

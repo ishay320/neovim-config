@@ -159,6 +159,7 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Format Lua code
 			"bash-language-server",
+			"shfmt",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

@@ -2,6 +2,8 @@ return {
 	-- See `:help gitsigns` to understand what the configuration keys do
 	"lewis6991/gitsigns.nvim",
 
+	event = { "BufReadPre", "BufNewFile" },
+
 	opts = {
 		current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
 		current_line_blame_opts = {

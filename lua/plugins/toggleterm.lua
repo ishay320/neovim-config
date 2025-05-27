@@ -4,6 +4,7 @@
 -- - show the terminals at a click
 return {
 	"akinsho/toggleterm.nvim",
+
 	version = "*",
 	config = function()
 		require("toggleterm").setup({})

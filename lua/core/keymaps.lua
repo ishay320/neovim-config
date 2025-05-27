@@ -60,9 +60,5 @@ vim.keymap.set("n", "<leader>gi", "<cmd>Gitsigns preview_hunk_inline<cr>", { des
 vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "[G]it [R]eset hunk" })
 vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "[G]it [S]tage hunk" })
 
--- aerial
--- there are also { and } for moving inside the aerial plugin from one symbol to the next
-vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "[A]erial" })
-
 -- neogen
 vim.keymap.set("n", "<leader>n", "<cmd>Neogen<CR>", { desc = "[N]eogen" })

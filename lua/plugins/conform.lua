@@ -1,17 +1,8 @@
 return {
+	-- formatting plugin
 	"stevearc/conform.nvim",
 
 	lazy = false,
-	keys = {
-		{
-			"<A-F>",
-			function()
-				require("conform").format({ async = true, lsp_fallback = true })
-			end,
-			mode = "",
-			desc = "[F]ormat buffer",
-		},
-	},
 	opts = {
 		notify_on_error = false,
 		format_on_save = function(bufnr)
@@ -47,6 +38,16 @@ return {
 					"--style={ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 80, AlignConsecutiveAssignments: true, BreakBeforeBraces: Stroustrup}",
 				},
 			},
+		},
+	},
+	keys = {
+		{
+			"<A-F>",
+			function()
+				require("conform").format({ async = true, lsp_fallback = true })
+			end,
+			mode = "",
+			desc = "[F]ormat buffer",
 		},
 	},
 }

@@ -1,5 +1,5 @@
 return {
-	-- show color for indent same as rainbow_delimiters
+	-- show color for indent same as rainbow_delimiters but for indent lines
 	"lukas-reineke/indent-blankline.nvim",
 
 	main = "ibl",

@@ -6,8 +6,8 @@ return {
 	"akinsho/toggleterm.nvim",
 
 	version = "*",
-	config = function()
-		require("toggleterm").setup({})
+	config = function(_, opts)
+		require("toggleterm").setup(opts)
 
 		-- Keymaps for opening/closing terminal
 		vim.keymap.set("n", "<C-_>", "<cmd>ToggleTerm<cr>", { desc = "Toggle Terminal (Normal)" })

@@ -1,7 +1,7 @@
 -- [[ Keymaps ]]
 --  See `:help vim.keymap.set()`
 
--- Groups are in the ../plugins/ui.lua file
+-- Groups are in the which-key plugin
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -50,15 +50,3 @@ vim.keymap.set("n", "<leader>tf", function()
 	vim.g.autoformat = not vim.g.autoformat
 	print("autoformat is now " .. tostring(vim.g.autoformat))
 end, { desc = "[T]oggle auto[F]ormat" })
-
--- go to next git change
-vim.keymap.set("n", "[h", ":Gitsigns prev_hunk<CR>", { desc = "Go to previews git hunk" })
-vim.keymap.set("n", "]h", ":Gitsigns next_hunk<CR>", { desc = "Go to next git hunk" })
-
-vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "[G]it [P]review" })
-vim.keymap.set("n", "<leader>gi", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "[G]it [I]nline preview" })
-vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "[G]it [R]eset hunk" })
-vim.keymap.set("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<cr>", { desc = "[G]it [S]tage hunk" })
-
--- neogen
-vim.keymap.set("n", "<leader>n", "<cmd>Neogen<CR>", { desc = "[N]eogen" })

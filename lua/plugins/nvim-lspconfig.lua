@@ -1,4 +1,5 @@
 return {
+	-- Provides configurations for Neovim's built-in LSP client
 	"neovim/nvim-lspconfig",
 
 	dependencies = {

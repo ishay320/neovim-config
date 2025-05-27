@@ -1,5 +1,7 @@
 return {
+	-- Debugging adapter protocol client for Neovim
 	"mfussenegger/nvim-dap",
+
 	dependencies = {
 		-- Debugger UI
 		"rcarriga/nvim-dap-ui",

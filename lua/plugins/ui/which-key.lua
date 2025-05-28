@@ -2,8 +2,8 @@ return {
 	-- Useful plugin to show you pending keybinds.
 	"folke/which-key.nvim",
 
-	event = "VimEnter", -- Sets the loading event to 'VimEnter'
-	config = function() -- This is the function that runs, AFTER loading
+	event = "VeryLazy",
+	config = function()
 		local wk = require("which-key")
 		wk.setup()
 		wk.add({
@@ -20,6 +20,8 @@ return {
 			{ "<leader>g", group = "[G]it" },
 			{ "<leader>t", group = "[T]oggle" },
 			{ "<leader>t_", hidden = true },
+			{ "<leader>x", group = "Troble" },
+			{ "<leader>x_", hidden = true },
 			{ "cr", desc = "abolish replace case" },
 			{ "cr-", desc = "dash-case" },
 			{ "cr.", desc = "dot.case" },

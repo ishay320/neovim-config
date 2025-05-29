@@ -55,11 +55,11 @@ return {
 			-- You can put your default mappings / updates / etc. in here
 			--  All the info you're looking for is in `:help telescope.setup()`
 			--
-			-- defaults = {
-			--   mappings = {
-			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-			--   },
-			-- },
+			defaults = {
+				mappings = {
+					i = { ["<C-f>"] = "to_fuzzy_refine" },
+				},
+			},
 			-- pickers = {}
 			extensions = {
 				["ui-select"] = {
@@ -86,6 +86,7 @@ return {
 		end, { desc = "[F]inde by [G]rep" })
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[F]inde [D]iagnostics" })
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[F]inde [R]esume" })
+		vim.keymap.set("n", "<leader>fl", builtin.git_commits, { desc = "[F]inde [L]og" })
 		vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[F]inde Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 

@@ -1,6 +1,5 @@
-local copilot_enabled = false
-
 return {
+	-- Copilot integration for Neovim
 	"zbirenbaum/copilot.lua",
 
 	build = ":Copilot auth",
@@ -36,17 +35,7 @@ return {
 		{
 			"<space>tc",
 			function()
-				if copilot_enabled then
-					-- Disable Copilot suggestions
-					vim.cmd("Copilot disable")
-					copilot_enabled = false
-					print("Copilot disabled")
-				else
-					-- Enable Copilot suggestions
-					vim.cmd("Copilot enable")
-					copilot_enabled = true
-					print("Copilot enabled")
-				end
+				vim.cmd("Copilot toggle")
 			end,
 			desc = "Toggle Copilot Suggestion",
 		},

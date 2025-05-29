@@ -77,9 +77,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
--- Faster file reading and UI rendering
-vim.opt.lazyredraw = true
-
 -- Help Functions
 function _G.put_text(...)
 	local objects = {}

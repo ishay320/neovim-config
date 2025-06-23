@@ -33,6 +33,8 @@ return {
 			{ "crp", desc = "PascalCase" },
 			{ "crs", desc = "snake_case" },
 			{ "cru", desc = "SNAKE_UPPERCASE" },
+			{ "gr", desc = "Lsp options" },
+			{ "gr_", hidden = true },
 		})
 	end,
 }

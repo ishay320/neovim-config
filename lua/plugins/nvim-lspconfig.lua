@@ -25,9 +25,6 @@ return {
 				--  Go to declaration of the word under your cursor
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-				-- Find references for the word under your cursor
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-
 				-- Jump to the implementation of the word under your cursor
 				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 
@@ -35,10 +32,10 @@ return {
 				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 
 				-- Fuzzy find all the symbols in your current document
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
 
 				-- Fuzzy find all the symbols in your current workspace
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
 
 				-- Rename the variable under your cursor.
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -68,11 +65,6 @@ return {
 			end,
 		})
 
-		-- LSP servers and clients are able to communicate to each other what features they support.
-		--  By default, Neovim doesn't support everything that is in the LSP specification.
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 		-- Enable the following language servers
 		local servers = {
 			clangd = {
@@ -101,7 +93,19 @@ return {
 			},
 			black = {},
 			prettier = {},
-			pyright = {},
+			pyright = {
+				settings = {
+					python = {
+						analysis = {
+							autoImportCompletions = true,
+							autoSearchPaths = true,
+							diagnosticMode = "workspace",
+							typeCheckingMode = "basic",
+							useLibraryCodeForTypes = true,
+						},
+					},
+				},
+			},
 			lua_ls = {
 				settings = {
 					Lua = {
@@ -126,16 +130,42 @@ return {
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-		-- Setup Mason LSPconfig with automatic installation and handler
+		for server_name, config in pairs(servers) do
+			vim.lsp.config(server_name, config)
+		end
+
+		-- NOTE: I can use `vim.lsp.enable(server_name)` but for :LspInstall servers it wont work
 		require("mason-lspconfig").setup({
-			automatic_installation = true,
-			handlers = {
-				function(server_name)
-					local server = servers[server_name] or {}
-					-- This handles overriding only values explicitly passed
-					-- by the server configuration above.
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
+			ensure_installed = {},
+			automatic_installation = false,
+			automatic_enable = true,
+		})
+
+		-- Diagnostic Config
+		-- See :help vim.diagnostic.Opts
+		vim.diagnostic.config({
+			severity_sort = true,
+			float = { border = "rounded", source = "if_many" },
+			underline = { severity = vim.diagnostic.severity.ERROR },
+			signs = vim.g.have_nerd_font and {
+				text = {
+					[vim.diagnostic.severity.ERROR] = "󰅚 ",
+					[vim.diagnostic.severity.WARN] = "󰀪 ",
+					[vim.diagnostic.severity.INFO] = "󰋽 ",
+					[vim.diagnostic.severity.HINT] = "󰌶 ",
+				},
+			} or {},
+			virtual_text = {
+				source = "if_many",
+				spacing = 2,
+				format = function(diagnostic)
+					local diagnostic_message = {
+						[vim.diagnostic.severity.ERROR] = diagnostic.message,
+						[vim.diagnostic.severity.WARN] = diagnostic.message,
+						[vim.diagnostic.severity.INFO] = diagnostic.message,
+						[vim.diagnostic.severity.HINT] = diagnostic.message,
+					}
+					return diagnostic_message[diagnostic.severity]
 				end,
 			},
 		})

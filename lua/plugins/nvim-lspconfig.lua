@@ -91,17 +91,18 @@ return {
 					--[[ "--query-driver=/usr/bin/g++", ]]
 				},
 			},
-			black = {},
+			ruff = {},
 			prettier = {},
-			pyright = {
+			basedpyright = {
 				settings = {
-					python = {
+					basedpyright = {
 						analysis = {
 							autoImportCompletions = true,
 							autoSearchPaths = true,
 							diagnosticMode = "workspace",
-							typeCheckingMode = "basic",
+							typeCheckingMode = "recommended",
 							useLibraryCodeForTypes = true,
+							reportMissingImports = true,
 						},
 					},
 				},

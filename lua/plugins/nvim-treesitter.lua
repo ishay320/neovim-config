@@ -3,7 +3,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 
 	dependencies = {
-		"markview.nvim",
+		"chentoast/marks.nvim",
 	},
 	build = ":TSUpdate",
 	opts = {

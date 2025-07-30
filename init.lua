@@ -2,6 +2,7 @@
 require("core.configurations")
 require("core.keymaps")
 require("core.autocommands")
+require("core.neovide")
 
 -- [[ Configure Plugins ]]
 require("lazy_init")

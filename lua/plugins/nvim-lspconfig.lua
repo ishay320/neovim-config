@@ -100,7 +100,7 @@ return {
 							autoImportCompletions = true,
 							autoSearchPaths = true,
 							diagnosticMode = "workspace",
-							typeCheckingMode = "recommended",
+							typeCheckingMode = "standard",
 							useLibraryCodeForTypes = true,
 							reportMissingImports = true,
 						},

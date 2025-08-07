@@ -43,5 +43,29 @@ return {
 			end,
 			desc = "Toggle Copilot Suggestion",
 		},
+		{
+			"<C-right>",
+			function()
+				require("copilot.suggestion").next()
+			end,
+			mode = "i",
+			desc = "switch to next word suggestion",
+		},
+		{
+			"<C-left>",
+			function()
+				require("copilot.suggestion").prev()
+			end,
+			mode = "i",
+			desc = "switch to previus word suggestion",
+		},
+		{
+			"<C-]>",
+			function()
+				require("copilot.suggestion").accept_word()
+			end,
+			mode = "i",
+			desc = "accept next word suggestion",
+		},
 	},
 }

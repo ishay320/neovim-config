@@ -1,3 +1,19 @@
+-- Function to toggle Copilot
+local function toggle_copilot()
+	vim.cmd("Copilot toggle")
+end
+
+-- Function to toggle line endings between Unix and DOS
+local function toggle_fileformat()
+	if vim.bo.fileformat == "unix" then
+		vim.bo.fileformat = "dos"
+		print("Switched to Windows line endings (CRLF)")
+	else
+		vim.bo.fileformat = "unix"
+		print("Switched to Unix line endings (LF)")
+	end
+end
+
 return {
 	-- show line of informative information
 	"nvim-lualine/lualine.nvim",
@@ -27,7 +43,16 @@ return {
 				},
 			},
 			lualine_c = { "filename" },
-			lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
+			lualine_x = {
+				{ "copilot", on_click = toggle_copilot },
+				"encoding",
+				{
+					"fileformat",
+					on_click = toggle_fileformat,
+					icons_enabled = true,
+				},
+				"filetype",
+			},
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},

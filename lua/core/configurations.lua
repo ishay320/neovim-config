@@ -35,9 +35,6 @@ vim.opt.showmode = false
 -- Enable break indent for better readability
 vim.opt.breakindent = true
 
--- Save undo history
-vim.opt.undofile = true
-
 -- Smarter case-sensitive searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -74,8 +71,20 @@ vim.opt.scrolloff = 10
 -- Indentation settings
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
+
+-- File handling
+vim.opt.autoread = true
+vim.opt.autowrite = false
+vim.opt.undofile = true
+local undodir = vim.fn.expand("~/.nvim_undodir")
+vim.opt.undodir = undodir
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir, "p")
+end
 
 -- Help Functions
 function _G.put_text(...)

@@ -59,3 +59,6 @@ vim.keymap.set("n", "<leader>tf", function()
 	vim.g.autoformat = not vim.g.autoformat
 	print("autoformat is now " .. tostring(vim.g.autoformat))
 end, { desc = "[T]oggle auto[F]ormat" })
+
+vim.keymap.set({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, noremap = true })
+vim.keymap.set({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, noremap = true })

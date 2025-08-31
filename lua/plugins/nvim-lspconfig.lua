@@ -91,7 +91,6 @@ return {
 					--[[ "--query-driver=/usr/bin/g++", ]]
 				},
 			},
-			ruff = {},
 			prettier = {},
 			basedpyright = {
 				settings = {

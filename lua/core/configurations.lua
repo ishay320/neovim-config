@@ -86,6 +86,9 @@ if vim.fn.isdirectory(undodir) == 0 then
 	vim.fn.mkdir(undodir, "p")
 end
 
+-- set the borders of the info
+vim.o.winborder = "rounded"
+
 -- Help Functions
 function _G.put_text(...)
 	local objects = {}

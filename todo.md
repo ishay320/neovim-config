@@ -2,7 +2,7 @@
 
 ## markdown
 
-- [ ] in normal mode - make the curser line show the original line
+- [ ] in normal mode - make the cursor line show the original line
 
 ## better search
 

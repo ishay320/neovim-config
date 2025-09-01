@@ -55,6 +55,18 @@ return {
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
 
+			-- Add circular borders to completion and documentation windows
+			window = {
+				completion = {
+					border = "rounded",
+					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+				},
+				documentation = {
+					border = "rounded",
+					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
+				},
+			},
+
 			-- For an understanding of why these mappings were
 			-- chosen, you will need to read `:help ins-completion`
 			--

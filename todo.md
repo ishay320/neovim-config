@@ -4,11 +4,6 @@
 
 - [ ] in normal mode - make the curser line show the original line
 
-## copilot
-
-- [ ] use Ollama
-  - [ ] let me choose model
-
 ## better search
 
 - [ ] find way to grep files the best way
@@ -16,6 +11,11 @@
 ## better terminal
 
 - [ ] create my own pop-up terminal / add more options to the installed one
+- [ ] multi terminal
+
+## netrw
+
+- [ ] show git info on file - U M R
 
 ---
 
@@ -40,6 +40,16 @@ Pass on each one and write:
 
 - [c] removed
 - [x] passed
+
+Check for each:
+
+- lazy load
+- key map
+- needed?
+- upgrades
+  - someone do it better?
+  - there is better way to do it?
+  - cleanup
 
 │ lazy_init.lua
 │

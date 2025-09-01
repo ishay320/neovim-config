@@ -20,7 +20,6 @@
 - `HiPhish/rainbow-delimiters.nvim` -- rainbow brackets
 - `nvim-treesitter/nvim-treesitter` -- Highlight, edit, and navigate code
 
-
 ### LSP
 
 - `neovim/nvim-lspconfig` -- neovim base lsp engine

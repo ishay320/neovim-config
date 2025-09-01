@@ -98,7 +98,6 @@ return {
 						analysis = {
 							autoImportCompletions = true,
 							autoSearchPaths = true,
-							diagnosticMode = "workspace",
 							typeCheckingMode = "standard",
 							useLibraryCodeForTypes = true,
 							reportMissingImports = true,
@@ -106,6 +105,7 @@ return {
 					},
 				},
 			},
+			black = {},
 			lua_ls = {
 				settings = {
 					Lua = {

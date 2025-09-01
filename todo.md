@@ -1,26 +1,92 @@
-[x] colors
-[ ] lsp
-    [x] base installed
-    [x] config for the lsp
-    [x] autocomplete
-    [x] install lang
-        [x] c
-        [x] cpp
-        [x] lua
-        [x] markdown
-        [x] python
-        [x] json
-[ ] distant
-[ ] start the command prompt at the base of the folder
-[ ] lazygit
-[ ] keymap
-    [ ] move line
-    [ ] dup line
-[ ] nerdtree
-[x] popup terminal
-[ ] treesitter
+# TODO
 
-[ ] create script
-    [ ] install
-    [ ] uninstall
-    [ ] update
+## markdown
+
+- [ ] in normal mode - make the curser line show the original line
+
+## copilot
+
+- [ ] use Ollama
+  - [ ] let me choose model
+
+## better search
+
+- [ ] find way to grep files the best way
+
+## better terminal
+
+- [ ] create my own pop-up terminal / add more options to the installed one
+
+---
+
+## future
+
+- [ ] distant
+
+---
+
+## checkout
+
+## remote work
+
+https://github.com/nosduco/remote-sshfs.nvim
+https://github.com/Chayanon-Ninyawee/remote-lsp.nvim
+
+---
+
+## cleanup
+
+Pass on each one and write:
+
+- [c] removed
+- [x] passed
+
+│ lazy_init.lua
+│
+├───core
+│ autocommands.lua
+│ configurations.lua
+│ keymaps.lua
+│ neovide.lua
+│
+├───plugins
+│ conform.lua
+│ lazydev.lua
+│ marks.lua
+│ mini.lua
+│ neogen.lua
+│ nvim-autopairs.lua
+│ nvim-cmp.lua
+│ nvim-dap.lua
+│ nvim-lspconfig.lua
+│ nvim-treesitter.lua
+│ remote-nvim.lua
+│ telescope.lua
+│ toggleterm.lua
+│ treewalker.lua
+│ undotree.lua
+│ venv.lua
+│ vim-abolish.lua
+│ vim-sleuth.lua
+│
+│├───ai
+││ copilot.lua
+││ copilotChat.lua
+││
+│├───git
+││ gitsigns.lua
+││ vim-fugitive.lua
+││
+│├───ui
+││ catppuccin.lua
+││ indent-blankline.lua
+││ lsp_signature.lua
+││ lualine.lua
+││ markview.lua
+││ netrw.lua
+││ nvim-notify.lua
+││ rainbow-delimiters.lua
+││ smear-cursor.lua
+││ todo-comments.lua
+││ trouble.lua
+││ which-key.lua

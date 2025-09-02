@@ -1,11 +1,10 @@
 -- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
 
-local augroup = vim.api.nvim_create_augroup("UserConfig", {})
+local augroup = vim.api.nvim_create_augroup("UserConfig", { clear = true })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+	group = augroup,
 	callback = function()
 		vim.highlight.on_yank()
 	end,

@@ -2,71 +2,43 @@
 -- Set <space> as the leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- Set Nerd Font as installed
-vim.g.have_nerd_font = true
-
--- Autoformat on close
-vim.g.autoformat = true
+vim.g.have_nerd_font = true -- Set Nerd Font as installed
+vim.g.autoformat = true -- Autoformat on close
 
 -- [[ Setting options ]]
--- See `:help vim.opt`
+-- Line numbers and display
+vim.opt.number = true -- Enable line numbers (relative + absolute hybrid)
+vim.opt.relativenumber = true -- set the line numbers to be relative to the current line
+vim.opt.cursorline = true -- Highlight current cursor line
+vim.opt.scrolloff = 10 -- Keep at least 10 lines above/below the cursor when scrolling
+vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
+vim.opt.showmode = false -- Hide mode (since it's in the status line)
+vim.o.winborder = "rounded" -- set the borders of the info
+vim.opt.spell = true -- Add squiggly line under wrongly spelled word
 
--- Add all project folders and C++ includes to search path
-vim.opt.path:append({ "**", "/usr/include/c++/**" })
+-- White space and formatting display
+vim.opt.list = true -- Sets how neovim will display certain white space characters in the editor.
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.breakindent = true -- Enable break indent for better readability
 
--- Add squiggly line under wrongly spelled word
--- `z=` for fix list
-vim.opt.spell = true
-
--- Enable line numbers (relative + absolute hybrid)
-vim.opt.number = true
-vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
-
--- Hide mode (since it's in the status line)
-vim.opt.showmode = false
-
--- Sync clipboard between OS and Neovim
--- vim.opt.clipboard = "unnamedplus"
-
--- Enable break indent for better readability
-vim.opt.breakindent = true
-
--- Smarter case-sensitive searching
-vim.opt.ignorecase = true
+-- Search behavior
+vim.opt.ignorecase = true -- Smarter case-sensitive searching
 vim.opt.smartcase = true
+vim.opt.inccommand = "split" -- Live preview for substitutions
+vim.opt.hlsearch = true
 
--- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
+-- Splits behavior
+vim.opt.splitright = true -- Configure how new splits should be opened
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain white space characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- System integration
+vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!
+-- vim.opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim
+vim.opt.path:append({ "**", "/usr/include/c++/**" }) -- Add all project folders and C++ includes to search path
 
--- Live preview for substitutions
-vim.opt.inccommand = "split"
-
--- Highlight current cursor line
-vim.opt.cursorline = true
-
--- Keep at least 10 lines above/below the cursor when scrolling
-vim.opt.scrolloff = 10
+-- Indentation settings
+vim.opt.updatetime = 250 -- Decrease update time
+vim.opt.timeoutlen = 300 -- Decrease mapped sequence wait time - Displays which-key popup sooner
 
 -- Indentation settings
 vim.opt.tabstop = 4
@@ -86,22 +58,12 @@ if vim.fn.isdirectory(undodir) == 0 then
 	vim.fn.mkdir(undodir, "p")
 end
 
--- set the borders of the info
-vim.o.winborder = "rounded"
+-- Misc
+vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 
--- Help Functions
-function _G.put_text(...)
-	local objects = {}
-	for i = 1, select("#", ...) do
-		local v = select(i, ...)
-		table.insert(objects, vim.inspect(v))
-	end
-
-	local lines = vim.split(table.concat(objects, "\n"), "\n")
-	local lnum = vim.api.nvim_win_get_cursor(0)[1]
-	vim.fn.append(lnum, lines)
-	return ...
-end
+-- Command-line completion
+vim.opt.wildmode = "longest:full,full" -- Smart command-line completion
+vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "node_modules/*", ".git/*" })
 
 -- Improve netrw file explorer behavior
 vim.g.netrw_browse_split = 0

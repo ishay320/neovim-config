@@ -38,8 +38,8 @@ https://github.com/Chayanon-Ninyawee/remote-lsp.nvim
 
 Pass on each one and write:
 
-- [c] removed
-- [x] passed
+- removed [r]
+- passed [p]
 
 Check for each:
 
@@ -51,13 +51,13 @@ Check for each:
   - there is better way to do it?
   - cleanup
 
-│ lazy_init.lua
+│ lazy_init.lua [p]
 │
 ├───core
-│ autocommands.lua
-│ configurations.lua
-│ keymaps.lua
-│ neovide.lua
+│ autocommands.lua [p]
+│ configurations.lua [p]
+│ keymaps.lua [p]
+│ neovide.lua [p]
 │
 ├───plugins
 │ conform.lua
@@ -100,3 +100,7 @@ Check for each:
 ││ todo-comments.lua
 ││ trouble.lua
 ││ which-key.lua
+
+## errors
+
+- when pressing gd it connect the same lsp twice

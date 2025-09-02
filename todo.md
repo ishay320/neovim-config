@@ -80,24 +80,24 @@ Check for each:
 │ vim-sleuth.lua
 │
 │├───ai
-││ copilot.lua
-││ copilotChat.lua
+││ copilot.lua [p]
+││ copilotChat.lua [p]
 ││
 │├───git
 ││ gitsigns.lua
 ││ vim-fugitive.lua
 ││
 │├───ui
-││ catppuccin.lua
+││ catppuccin.lua [p]
 ││ indent-blankline.lua
 ││ lsp_signature.lua
 ││ lualine.lua
 ││ markview.lua
-││ netrw.lua
+││ netrw.lua [p]
 ││ nvim-notify.lua
 ││ rainbow-delimiters.lua
 ││ smear-cursor.lua
-││ todo-comments.lua
+││ todo-comments.lua [p]
 ││ trouble.lua
 ││ which-key.lua
 

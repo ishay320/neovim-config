@@ -62,7 +62,6 @@ end
 vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 
 -- Command-line completion
-vim.opt.wildmode = "longest:full,full" -- Smart command-line completion
 vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "node_modules/*", ".git/*" })
 
 -- Improve netrw file explorer behavior

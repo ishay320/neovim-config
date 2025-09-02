@@ -14,7 +14,7 @@ return {
 			auto_trigger = true,
 			debounce = 75,
 			keymap = {
-				accept = "<Tab>",
+				accept = "<M-l>",
 				next = "<M-]>",
 				prev = "<M-[>",
 				dismiss = "<C-e>",
@@ -31,7 +31,6 @@ return {
 	},
 
 	keys = {
-		-- Toggle Copilot suggestion with <space>tc
 		{
 			"<space>tc",
 			function()
@@ -42,22 +41,6 @@ return {
 				end
 			end,
 			desc = "Toggle Copilot Suggestion",
-		},
-		{
-			"<C-right>",
-			function()
-				require("copilot.suggestion").next()
-			end,
-			mode = "i",
-			desc = "switch to next word suggestion",
-		},
-		{
-			"<C-left>",
-			function()
-				require("copilot.suggestion").prev()
-			end,
-			mode = "i",
-			desc = "switch to previus word suggestion",
 		},
 		{
 			"<C-]>",

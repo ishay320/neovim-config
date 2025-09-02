@@ -23,5 +23,10 @@
 		"prefix": "INFO",
 		"body": "$LINE_COMMENT INFO: ${1:Additional context}",
 		"description": "Adds an INFO comment"
+	},
+	"PERFORMANCE": {
+		"prefix": "PERFORMANCE",
+		"body": "$LINE_COMMENT PERFORMANCE: ${1:Additional context}",
+		"description": "Adds an PERFORMANCE comment"
 	}
 }

@@ -1,5 +1,5 @@
 return {
-	-- See `:help gitsigns` to understand what the configuration keys do
+	-- plugin that shows signs inline of who committed that line
 	"lewis6991/gitsigns.nvim",
 
 	event = { "BufReadPre", "BufNewFile" },
@@ -18,14 +18,14 @@ return {
 		{
 			"[h",
 			function()
-				require("gitsigns").prev_hunk()
+				require("gitsigns").nav_hunk("prev")
 			end,
 			desc = "Go to previews git [H]unk",
 		},
 		{
 			"]h",
 			function()
-				require("gitsigns").next_hunk()
+				require("gitsigns").nav_hunk("next")
 			end,
 			desc = "Go to next git [H]unk",
 		},

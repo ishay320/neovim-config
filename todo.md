@@ -72,10 +72,10 @@ Check for each:
 │ nvim-treesitter.lua
 │ remote-nvim.lua
 │ telescope.lua
-│ toggleterm.lua
+│ toggleterm.lua [p]
 │ treewalker.lua
 │ undotree.lua
-│ venv.lua
+│ venv.lua [p]
 │ vim-abolish.lua
 │ vim-sleuth.lua
 │
@@ -84,7 +84,7 @@ Check for each:
 ││ copilotChat.lua [p]
 ││
 │├───git
-││ gitsigns.lua
+││ gitsigns.lua [p]
 ││ vim-fugitive.lua
 ││
 │├───ui

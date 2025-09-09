@@ -32,7 +32,7 @@
 https://github.com/nosduco/remote-sshfs.nvim
 https://github.com/Chayanon-Ninyawee/remote-lsp.nvim
 
----
+- treesitter-context
 
 ## cleanup
 
@@ -69,7 +69,7 @@ Check for each:
 │ nvim-cmp.lua
 │ nvim-dap.lua
 │ nvim-lspconfig.lua
-│ nvim-treesitter.lua
+│ nvim-treesitter.lua [p]
 │ remote-nvim.lua
 │ telescope.lua [p]
 │ toggleterm.lua [p]

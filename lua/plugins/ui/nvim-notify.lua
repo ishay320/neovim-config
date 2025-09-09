@@ -2,6 +2,6 @@ return {
 	"rcarriga/nvim-notify",
 	opts = {},
 	config = function()
-		vim.notify = require("notify")
+		vim.notify = vim.schedule_wrap(require("notify"))
 	end,
 }

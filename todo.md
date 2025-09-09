@@ -74,7 +74,7 @@ Check for each:
 │ telescope.lua [p]
 │ toggleterm.lua [p]
 │ treewalker.lua
-│ undotree.lua
+│ undotree.lua [p]
 │ venv.lua [p]
 │ vim-abolish.lua
 │ vim-sleuth.lua

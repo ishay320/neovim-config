@@ -68,7 +68,7 @@ Check for each:
 │ nvim-autopairs.lua
 │ nvim-cmp.lua
 │ nvim-dap.lua
-│ nvim-lspconfig.lua
+│ nvim-lspconfig.lua [p]
 │ nvim-treesitter.lua [p]
 │ remote-nvim.lua
 │ telescope.lua [p]

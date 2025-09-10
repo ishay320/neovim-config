@@ -3,9 +3,8 @@ return {
 	"neovim/nvim-lspconfig",
 
 	dependencies = {
-		-- Automatically install LSPs and related tools to stdpath for Neovim
 		{
-			"williamboman/mason.nvim",
+			"williamboman/mason.nvim", -- LSP DAP linter and formatter installer plugin
 			opts = {
 				ui = {
 					icons = {
@@ -17,15 +16,16 @@ return {
 			},
 			max_concurrent_installers = 10,
 		},
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"williamboman/mason-lspconfig.nvim", -- glue between mason and lspconfig
+		"WhoIsSethDaniel/mason-tool-installer.nvim", -- auto install list of LSP servers
 
-		-- Useful status updates for LSP
-		{ "j-hui/fidget.nvim", opts = {} },
+		{ "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP
 	},
+
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
+			desc = "attach keymaps to lsp enabled buffer",
 			callback = function(event)
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
@@ -67,17 +67,19 @@ return {
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
 						callback = vim.lsp.buf.document_highlight,
+						desc = "highlight references when the cursor is idle",
 					})
 
 					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 						buffer = event.buf,
 						callback = vim.lsp.buf.clear_references,
+						desc = "clear highlight from all the references when the cursor moves",
 					})
 				end
 			end,
 		})
 
-		-- Enable the following language servers
+		-- Servers to be install and their opts
 		local servers = {
 			clangd = {
 				cmd = {
@@ -130,18 +132,19 @@ return {
 			},
 		}
 
-		-- Ensure the servers and tools above are installed
-		require("mason").setup()
-
 		-- Ensure the tools are installed
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Format Lua code
-			"bash-language-server",
-			"shfmt",
+			"bash-language-server", -- bash LSP
+			"shfmt", -- shell formatter
 		})
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+		-- Ensure the servers and tools above are installed
+		require("mason").setup()
+		require("mason-tool-installer").setup({ ensure_installed = ensure_installed }) -- install servers
+
+		-- configure the servers using the table above
 		for server_name, config in pairs(servers) do
 			vim.lsp.config(server_name, config)
 		end
@@ -149,7 +152,6 @@ return {
 		-- NOTE: I can use `vim.lsp.enable(server_name)` but for :LspInstall servers it wont work
 		require("mason-lspconfig").setup({
 			ensure_installed = {},
-			automatic_installation = false,
 			automatic_enable = true,
 		})
 

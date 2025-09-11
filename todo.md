@@ -60,7 +60,7 @@ Check for each:
 │ neovide.lua [p]
 │
 ├───plugins
-│ conform.lua
+│ conform.lua [p]
 │ lazydev.lua
 │ marks.lua
 │ mini.lua

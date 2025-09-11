@@ -61,7 +61,7 @@ map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- Toggle autoformat
 map("n", "<leader>tf", function()
 	vim.g.autoformat = not vim.g.autoformat
-	print("Autoformat is now " .. tostring(vim.g.autoformat))
+	vim.notify("Autoformat is now " .. tostring(vim.g.autoformat),vim.log.levels.INFO,{ title = "Toggle"})
 end, { desc = "[T]oggle auto[F]ormat" })
 map("n", "<leader>tw", "<cmd>set wrap!<CR>", { desc = "[T]oggle [W]rap" })
 

@@ -4,13 +4,11 @@ return {
 
 	event = "VeryLazy",
 	opts = {
-		notify_on_error = false,
+		notify_on_error = true,
 		format_on_save = function(bufnr)
-			-- Disable "format_on_save lsp_fallback" for languages that don't
-			-- have a well standardized coding style. You can add additional
-			-- languages here or re-enable it for the disabled ones.
-			local disable_filetypes = { c = true, cpp = true }
-			if vim.g.autoformat == false then -- if autoformat if false then do not format
+			-- Disable format_on_save for languages in that list
+			local disable_filetypes = { c = false, cpp = false }
+			if vim.g.autoformat == false then -- if autoformat is false then do not format
 				return
 			end
 			return {
@@ -19,6 +17,7 @@ return {
 			}
 		end,
 		formatters_by_ft = {
+			-- NOTE: if added new formatter, autoinstall it in 'nvim-lspconfig.lua'
 			sh = { "shfmt" },
 			lua = { "stylua" },
 			cpp = { "clang_format" },
@@ -32,6 +31,7 @@ return {
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 		},
+		-- formatters configurations
 		formatters = {
 			clang_format = {
 				prepend_args = {
@@ -40,6 +40,7 @@ return {
 			},
 		},
 	},
+
 	keys = {
 		{
 			"<A-F>",

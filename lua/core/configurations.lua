@@ -15,6 +15,7 @@ vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.showmode = false -- Hide mode (since it's in the status line)
 vim.o.winborder = "rounded" -- set the borders of the info
 vim.opt.spell = true -- Add squiggly line under wrongly spelled word
+vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
 
 -- White space and formatting display
 vim.opt.list = true -- Sets how neovim will display certain white space characters in the editor.

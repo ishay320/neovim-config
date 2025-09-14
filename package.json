@@ -1,39 +1,40 @@
 {
-    "name": "i-pack",
-    "contributes": {
-        "snippets": [
-            {
-                "language": [
-                    "plaintext",
-                    "markdown",
-                    "tex",
-                    "html",
-                    "global",
-                    "all"
-                ],
-                "path": "./vsnippets/global_stuff.jsonc"
-            },
-            {
-                "language": "c",
-                "path": "./vsnippets/c.jsonc"
-            },
-            {
-                "language": [
-                    "shellscript",
-                    "shell",
-                    "sh",
-                    "zsh"
-                ],
-                "path": "./vsnippets/shellscript.jsonc"
-            },
-            {
-                "language": "python",
-                "path": "./vsnippets/python/unittest.jsonc"
-            },
-            {
-                "language": "cpp",
-                "path": "./vsnippets/cpp.jsonc"
-            }
-        ]
-    }
+  "name": "i-pack",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "plaintext",
+          "markdown",
+          "tex",
+          "html",
+          "global",
+          "all"
+        ],
+        "path": "./vsnippets/global_stuff.jsonc"
+      },
+      {
+        "language": "c",
+        "path": "./vsnippets/c.jsonc"
+      },
+      {
+        "language": [
+          "shellscript",
+          "shell",
+          "sh",
+          "zsh",
+          "bash"
+        ],
+        "path": "./vsnippets/shellscript.jsonc"
+      },
+      {
+        "language": "python",
+        "path": "./vsnippets/python.jsonc"
+      },
+      {
+        "language": "cpp",
+        "path": "./vsnippets/cpp.jsonc"
+      }
+    ]
+  }
 }

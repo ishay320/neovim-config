@@ -1,5 +1,4 @@
 {
-	"add Typedef Struct": {
 	"probe": {
 		"prefix": "probe",
 		"body": [

@@ -1,8 +1,6 @@
 # TODO
 
-## markdown
-
-- [ ] in normal mode - make the cursor line show the original line
+Find a way to reload the plugins
 
 ## better search
 
@@ -11,7 +9,6 @@
 ## better terminal
 
 - [ ] create my own pop-up terminal / add more options to the installed one
-- [ ] multi terminal
 
 ## netrw
 
@@ -62,11 +59,11 @@ Check for each:
 ├───plugins
 │ conform.lua [p]
 │ lazydev.lua
-│ marks.lua
+│ marks.lua [r]
 │ mini.lua
 │ neogen.lua
 │ nvim-autopairs.lua
-│ nvim-cmp.lua
+│ nvim-cmp.lua [p]
 │ nvim-dap.lua
 │ nvim-lspconfig.lua [p]
 │ nvim-treesitter.lua [p]
@@ -92,7 +89,7 @@ Check for each:
 ││ indent-blankline.lua
 ││ lsp_signature.lua
 ││ lualine.lua
-││ markview.lua
+││ markview.lua [p]
 ││ netrw.lua [p]
 ││ nvim-notify.lua
 ││ rainbow-delimiters.lua
@@ -104,3 +101,20 @@ Check for each:
 ## errors
 
 - when pressing gd it connect the same lsp twice
+
+## lsp
+
+- in python when creating new file it need lsp update to find it
+<!-- - in python when using `from x import` then the autocomplete needs to be stuff from the import -->
+
+## smear problems
+
+- markview when moving up and down it wont go to the correct position and in left and right it jumps
+- when saving file, the curser jumps up - only on format with sync
+
+> disabled for now
+
+## ideas
+
+- function that format only git changed - get the list of ranges, then call the formatter on them
+- on the grep function - add option for regex, exact search and capital letters; and show the selected options in the title

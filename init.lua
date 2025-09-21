@@ -13,6 +13,7 @@ require("lazy").setup({
 		{ import = "plugins.git" },
 		{ import = "plugins.ui" },
 	},
+	ui = { border = "rounded" },
 	change_detection = { notify = false },
 	install = { colorscheme = { "catppuccin-mocha" } },
 })

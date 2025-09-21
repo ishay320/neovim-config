@@ -46,6 +46,7 @@ return {
 		local builtin = require("telescope.builtin")
 		local map = vim.keymap.set
 		map("n", "<leader>fh", builtin.help_tags, { desc = "[F]inde [H]elp" })
+		map("n", "<leader>fm", builtin.man_pages, { desc = "[F]inde [M]an pages" })
 		map("n", "<leader>fk", builtin.keymaps, { desc = "[F]inde [K]eymaps" })
 		map("n", "<leader>ff", builtin.find_files, { desc = "[F]inde [F]iles" })
 		map("n", "<leader>fb", builtin.builtin, { desc = "[F]inde [B]uiltin" })

@@ -57,7 +57,9 @@ return {
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
 				-- Opens a popup that displays documentation about the word under your cursor
-				map("K", vim.lsp.buf.hover, "Hover Documentation")
+				map("K", function()
+					vim.lsp.buf.hover({ border = "rounded" })
+				end, "Hover Documentation")
 
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.

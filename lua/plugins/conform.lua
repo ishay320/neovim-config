@@ -6,15 +6,17 @@ return {
 	opts = {
 		notify_on_error = true,
 		format_on_save = function(bufnr)
-			-- Disable format_on_save for languages in that list
-			local disable_filetypes = { c = false, cpp = false }
-			if vim.g.autoformat == false then -- if autoformat is false then do not format
+			-- Disable autoformat on certain filetypes - add "name"
+			local ignore_filetypes = {}
+			if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
 				return
 			end
-			return {
-				timeout_ms = 500,
-				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-			}
+			-- Disable autoformat for files in a certain path
+			local bufname = vim.api.nvim_buf_get_name(bufnr)
+			if bufname:match("/node_modules/") then
+				return
+			end
+			return { timeout_ms = 500, lsp_format = "fallback" }
 		end,
 		formatters_by_ft = {
 			-- NOTE: if added new formatter, autoinstall it in 'nvim-lspconfig.lua'

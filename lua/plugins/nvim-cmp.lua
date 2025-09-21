@@ -1,8 +1,46 @@
+-- function that creating the text of the suggestion
+local format_func = function(_, vim_item, short)
+	local kind_icons = {
+		Text = "󰉿",
+		Method = "󰆧",
+		Function = "󰊕",
+		Constructor = "",
+		Field = "󰜢",
+		Variable = "󰀫",
+		Class = "󰠱",
+		Interface = "",
+		Module = "",
+		Property = "󰜢",
+		Unit = "󰑭",
+		Value = "󰎠",
+		Enum = "",
+		Keyword = "󰌋",
+		Snippet = "",
+		Color = "󰏘",
+		File = "󰈙",
+		Reference = "󰈇",
+		Folder = "󰉋",
+		EnumMember = "",
+		Constant = "󰏿",
+		Struct = "󰙅",
+		Event = "",
+		Operator = "󰆕",
+		TypeParameter = "󰅲",
+	}
+
+	if short then
+		vim_item.kind = string.format("%s", kind_icons[vim_item.kind] or "")
+	else
+		vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind] or "", vim_item.kind)
+	end
+	return vim_item
+end
+
 return {
 	-- Autocompletion
 	"hrsh7th/nvim-cmp",
 
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		-- Snippet Engine & its associated nvim-cmp source
 		{
@@ -15,8 +53,6 @@ return {
 			end)(),
 			dependencies = {
 				-- `friendly-snippets` contains a variety of premade snippets.
-				--    See the README about individual language/framework/plugin snippets:
-				--    https://github.com/rafamadriz/friendly-snippets
 				{
 					"rafamadriz/friendly-snippets",
 					config = function()
@@ -34,15 +70,14 @@ return {
 		-- glue plugin that connect the LuaSnip plugin with the nvim-cmp
 		"saadparwaiz1/cmp_luasnip",
 
-		-- Adds other completion capabilities.
-		--  nvim-cmp does not ship with all sources by default. They are split
-		--  into multiple repos for maintenance purposes.
+		-- Adds other completion capabilities
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-calc",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-buffer",
 	},
 	config = function()
-		-- See `:help cmp`
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		luasnip.config.setup({})
@@ -66,11 +101,29 @@ return {
 					winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
 				},
 			},
+			formatting = {
+				fields = { "abbr", "kind" },
+				format = function(entry, vim_item)
+					return format_func(entry, vim_item, false)
+				end,
+			},
 
-			-- For an understanding of why these mappings were
-			-- chosen, you will need to read `:help ins-completion`
-			--
-			-- No, but seriously. Please read `:help ins-completion`, it is really good!
+			-- Smart sorting based on context
+			sorting = {
+				priority_weight = 2,
+				comparators = {
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.recently_used,
+					cmp.config.compare.locality,
+					cmp.config.compare.kind,
+					cmp.config.compare.sort_text,
+					cmp.config.compare.length,
+					cmp.config.compare.order,
+				},
+			},
+
 			mapping = cmp.mapping.preset.insert({
 				-- Select the [n]ext item
 				["<C-n>"] = cmp.mapping.select_next_item(),
@@ -87,16 +140,8 @@ return {
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 
 				-- Manually trigger a completion from nvim-cmp.
-				--  Generally you don't need this, because nvim-cmp will display
-				--  completions whenever it has completion options available.
 				["<C-Space>"] = cmp.mapping.complete({}),
 
-				-- Think of <c-l> as moving to the right of your snippet expansion.
-				--  So if you have a snippet that's like:
-				--  function $name($args)
-				--    $body
-				--  end
-				--
 				-- <c-l> will move you to the right of each of the expansion locations.
 				-- <c-h> is similar, except moving you backwards.
 				["<C-l>"] = cmp.mapping(function()
@@ -118,6 +163,62 @@ return {
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "calc" },
+			},
+		})
+
+		cmp.setup.cmdline("/", {
+			mapping = {
+				["<C-Space>"] = cmp.mapping(function()
+					if cmp.visible() then
+						cmp.abort()
+					else
+						cmp.complete()
+					end
+				end, { "c" }),
+				["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "c" }),
+				["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "c" }),
+				["<C-y>"] = cmp.mapping(function()
+					if cmp.visible() then
+						cmp.confirm({ select = false })
+					else
+						vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-y>", true, false, true), "n", true)
+					end
+				end, { "c" }),
+			},
+			sources = {
+				{ name = "buffer" },
+			},
+			completion = { autocomplete = false },
+			formatting = {
+				format = function(entry, vim_item)
+					return format_func(entry, vim_item, true)
+				end,
+			},
+		})
+
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline({
+				["<Tab>"] = cmp.mapping(function(_)
+					if cmp.visible() then
+						return cmp.select_next_item()
+					end
+					cmp.complete()
+					-- select the first one, don't know why, but it need to be called twice for some situations
+					cmp.select_next_item({ count = 0 })
+					cmp.select_next_item({ count = 0 })
+				end, { "c" }),
+			}),
+			sources = cmp.config.sources({
+				{ name = "path" },
+			}, {
+				{ name = "cmdline" },
+			}),
+			matching = { disallow_symbol_nonprefix_matching = false },
+			completion = { autocomplete = false },
+			formatting = {
+				format = function(entry, vim_item)
+					return format_func(entry, vim_item, true)
+				end,
 			},
 		})
 	end,

@@ -82,7 +82,7 @@ Check for each:
 ││
 │├───git
 ││ gitsigns.lua [p]
-││ vim-fugitive.lua
+││ vim-fugitive.lua [p]
 ││
 │├───ui
 ││ catppuccin.lua [p]
@@ -91,12 +91,12 @@ Check for each:
 ││ lualine.lua
 ││ markview.lua [p]
 ││ netrw.lua [p]
-││ nvim-notify.lua
+││ nvim-notify.lua [p]
 ││ rainbow-delimiters.lua
-││ smear-cursor.lua
+││ smear-cursor.lua [p]
 ││ todo-comments.lua [p]
 ││ trouble.lua
-││ which-key.lua
+││ which-key.lua [p]
 
 ## errors
 

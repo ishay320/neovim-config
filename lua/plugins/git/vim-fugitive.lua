@@ -1,4 +1,5 @@
 return {
+	-- Git integration
 	"tpope/vim-fugitive",
 
 	-- In diff mode, you can use the following commands:

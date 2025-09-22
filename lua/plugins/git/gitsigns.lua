@@ -16,18 +16,18 @@ return {
 	},
 	keys = {
 		{
-			"[h",
+			"[c",
 			function()
 				require("gitsigns").nav_hunk("prev")
 			end,
-			desc = "Go to previews git [H]unk",
+			desc = "Jump to previews git hunk",
 		},
 		{
-			"]h",
+			"]c",
 			function()
 				require("gitsigns").nav_hunk("next")
 			end,
-			desc = "Go to next git [H]unk",
+			desc = "Jump to next git hunk",
 		},
 		{
 			"<leader>gi",

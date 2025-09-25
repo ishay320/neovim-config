@@ -48,6 +48,7 @@ return {
 				go_to_file_terminal(true)
 			end, { buffer = true })
 		end,
+		auto_scroll = false,
 	},
 	config = function(_, opts)
 		require("toggleterm").setup(opts)

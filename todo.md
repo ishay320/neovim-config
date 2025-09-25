@@ -93,7 +93,7 @@ Check for each:
 ││ netrw.lua [p]
 ││ nvim-notify.lua [p]
 ││ rainbow-delimiters.lua
-││ smear-cursor.lua [p]
+││ smear-cursor.lua [r]
 ││ todo-comments.lua [p]
 ││ trouble.lua
 ││ which-key.lua [p]
@@ -106,13 +106,6 @@ Check for each:
 
 - in python when creating new file it need lsp update to find it
 <!-- - in python when using `from x import` then the autocomplete needs to be stuff from the import -->
-
-## smear problems
-
-- markview when moving up and down it wont go to the correct position and in left and right it jumps
-- when saving file, the curser jumps up - only on format with sync
-
-> disabled for now
 
 ## ideas
 

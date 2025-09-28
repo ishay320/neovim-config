@@ -86,7 +86,7 @@ Check for each:
 ││
 │├───ui
 ││ catppuccin.lua [p]
-││ indent-blankline.lua
+││ indent-blankline.lua [p]
 ││ lsp_signature.lua
 ││ lualine.lua
 ││ markview.lua [p]

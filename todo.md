@@ -92,7 +92,7 @@ Check for each:
 ││ markview.lua [p]
 ││ netrw.lua [p]
 ││ nvim-notify.lua [p]
-││ rainbow-delimiters.lua
+││ rainbow-delimiters.lua [p]
 ││ smear-cursor.lua [r]
 ││ todo-comments.lua [p]
 ││ trouble.lua

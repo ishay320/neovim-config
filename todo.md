@@ -87,8 +87,8 @@ Check for each:
 │├───ui
 ││ catppuccin.lua [p]
 ││ indent-blankline.lua [p]
-││ lsp_signature.lua
-││ lualine.lua
+││ lsp_signature.lua [p]
+││ lualine.lua - add autoformat button
 ││ markview.lua [p]
 ││ netrw.lua [p]
 ││ nvim-notify.lua [p]

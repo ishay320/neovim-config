@@ -2,8 +2,8 @@ return {
 	-- show functions signatures
 	"ray-x/lsp_signature.nvim",
 
-	event = "VeryLazy",
-	opts = { floating_window_off_x = 30 },
+	event = "InsertEnter",
+	opts = {},
 	keys = {
 		{
 			"<C-k>",

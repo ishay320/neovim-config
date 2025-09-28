@@ -30,33 +30,25 @@ return {
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
+				local builtin = require("telescope.builtin")
 
-				-- Jump to the definition of the word under your cursor
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				-- TODO: override `grr`
+				-- Jump to references
+				map("gR", builtin.lsp_references, "[G]oto [R]efrence")
 
-				--  Go to declaration of the word under your cursor
+				-- -override- Jump to the definition of the word under your cursor
+				map("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
+
+				-- -override- Go to declaration of the word under your cursor
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-				-- Jump to the implementation of the word under your cursor
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-
-				-- Jump to the type of the word under your cursor
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-
-				-- Fuzzy find all the symbols in your current document
-				map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
+				-- -override- Fuzzy find all the symbols in your current document
+				map("gO", builtin.lsp_document_symbols, "Open Document Symbols")
 
 				-- Fuzzy find all the symbols in your current workspace
-				map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
+				map("gW", builtin.lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
 
-				-- Rename the variable under your cursor.
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-
-				-- Execute a code action, usually your cursor needs to be on top of an error
-				-- or a suggestion from your LSP for this to activate.
-				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-				-- Opens a popup that displays documentation about the word under your cursor
+				-- Opens a pop-up that displays documentation about the word under your cursor
 				map("K", function()
 					vim.lsp.buf.hover({ border = "rounded" })
 				end, "Hover Documentation")

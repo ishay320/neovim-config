@@ -13,16 +13,7 @@ map({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, noremap = tru
 map("n", "[b", "<cmd>bprev<CR>", { desc = "Go to previous [B]uffer" })
 map("n", "]b", "<cmd>bnext<CR>", { desc = "Go to next [B]uffer" })
 
--- Diagnostic navigation
-map("n", "[d", function()
-	vim.diagnostic.jump({ count = -1, float = true })
-end, { desc = "Go to previous [D]iagnostic message" })
-map("n", "]d", function()
-	vim.diagnostic.jump({ count = 1, float = true })
-end, { desc = "Go to next [D]iagnostic message" })
-
 -- Diagnostic actions
-map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Windows navigation
@@ -61,7 +52,7 @@ map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- Toggle autoformat
 map("n", "<leader>tf", function()
 	vim.g.autoformat = not vim.g.autoformat
-	vim.notify("Autoformat is now " .. tostring(vim.g.autoformat),vim.log.levels.INFO,{ title = "Toggle"})
+	vim.notify("Autoformat is now " .. tostring(vim.g.autoformat), vim.log.levels.INFO, { title = "Toggle" })
 end, { desc = "[T]oggle auto[F]ormat" })
 map("n", "<leader>tw", "<cmd>set wrap!<CR>", { desc = "[T]oggle [W]rap" })
 

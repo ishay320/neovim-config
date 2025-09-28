@@ -6,6 +6,9 @@ return {
 	opts = {
 		notify_on_error = true,
 		format_on_save = function(bufnr)
+			if vim.g.autoformat == false then
+				return false
+			end
 			-- Disable autoformat on certain filetypes - add "name"
 			local ignore_filetypes = {}
 			if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then

@@ -67,7 +67,7 @@ Check for each:
 │ nvim-dap.lua
 │ nvim-lspconfig.lua [p]
 │ nvim-treesitter.lua [p]
-│ remote-nvim.lua
+│ remote-nvim.lua [p]
 │ telescope.lua [p]
 │ toggleterm.lua [p]
 │ treewalker.lua

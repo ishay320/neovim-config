@@ -39,7 +39,7 @@ return {
 
 	version = "*",
 	opts = {
-		open_mapping = { [[<C-\>]], [[<C-_>]] },
+		open_mapping = { [[<C-\>]], [[<C-_>]], [[<C-/>]] },
 		on_open = function()
 			vim.keymap.set("n", "gf", function()
 				go_to_file_terminal(false)

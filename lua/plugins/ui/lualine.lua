@@ -34,7 +34,7 @@ local function choose_filetype()
 	end)
 end
 
-local function autoformat()
+local function autoformat_icon()
 	if vim.g.autoformat then
 		return " 󱩤 "
 	else
@@ -43,7 +43,7 @@ local function autoformat()
 	-- return " 󱩨 "
 end
 
-local function on_click_autoformat()
+local function autoformat_select()
 	local options = {
 		"󱩤 On",
 		"󱩪 Off",
@@ -74,10 +74,8 @@ return {
 		options = {
 			icons_enabled = true,
 			theme = "auto",
-			component_separators = { left = "", right = "" },
-			section_separators = { left = "", right = "" },
-			disabled_filetypes = {},
-			always_divide_middle = true,
+			section_separators = { left = "", right = "" },
+			component_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -90,9 +88,14 @@ return {
 					symbols = { error = " ", warn = " ", info = " ", hint = " " },
 				},
 			},
-			lualine_c = { "filename" },
+			lualine_c = {
+				{
+					"filename",
+					symbols = { modified = "●", readonly = "󰌾", unnamed = "[No Name]", newfile = "[New]" },
+				},
+			},
 			lualine_x = {
-				{ autoformat, on_click = on_click_autoformat },
+				{ autoformat_icon, on_click = autoformat_select },
 				{ "copilot", on_click = toggle_copilot },
 				{
 					"fileformat",
@@ -102,24 +105,17 @@ return {
 				},
 				{ "filetype", on_click = choose_filetype, separator = "" },
 				{
-					function()
-						local clients = vim.lsp.get_clients({ bufnr = 0 })
-						if #clients == 0 then
-							return ""
-						end
-
-						return "~ " .. clients[1].name
-					end,
-					padding = { left = 0, right = 1 },
+					"lsp_status",
 					on_click = function()
 						vim.cmd("LspInfo")
 					end,
 					color = "lualine_c_inactive",
+					padding = { left = 0, right = 1 },
 				},
 			},
 			lualine_y = {
 				{ "progress", separator = "", padding = { left = 1, right = 1 } },
-				{ "location", padding = { left = 0, right = 0 } },
+				{ "location", padding = { left = 0, right = 1 } },
 			},
 			lualine_z = {
 				function()
@@ -130,7 +126,12 @@ return {
 		inactive_sections = {
 			lualine_a = {},
 			lualine_b = {},
-			lualine_c = { "filename" },
+			lualine_c = {
+				{
+					"filename",
+					symbols = { modified = "●", readonly = "󰌾", unnamed = "[No Name]", newfile = "[New]" },
+				},
+			},
 			lualine_x = { "location" },
 			lualine_y = {},
 			lualine_z = {},

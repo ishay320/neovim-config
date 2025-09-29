@@ -13,7 +13,6 @@ vim.opt.cursorline = true -- Highlight current cursor line
 vim.opt.scrolloff = 10 -- Keep at least 10 lines above/below the cursor when scrolling
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.showmode = false -- Hide mode (since it's in the status line)
--- vim.o.winborder = "rounded" -- set the borders of the info
 vim.opt.spell = true -- Add squiggly line under wrongly spelled word
 vim.opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
 
@@ -34,6 +33,7 @@ vim.opt.splitbelow = true
 
 -- System integration
 vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!
+vim.o.mousescroll = "ver:1,hor:1"
 -- vim.opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim
 vim.opt.path:append({ "**", "/usr/include/c++/**" }) -- Add all project folders and C++ includes to search path
 

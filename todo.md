@@ -88,7 +88,7 @@ Check for each:
 ││ catppuccin.lua [p]
 ││ indent-blankline.lua [p]
 ││ lsp_signature.lua [p]
-││ lualine.lua
+││ lualine.lua [p]
 ││ markview.lua [p]
 ││ netrw.lua [p]
 ││ nvim-notify.lua [p]

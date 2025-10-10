@@ -163,6 +163,7 @@ return {
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "calc" },
+				{ name = "lazydev", group_index = 0 }, -- from the 'lazydev.lua' file
 			},
 		})
 

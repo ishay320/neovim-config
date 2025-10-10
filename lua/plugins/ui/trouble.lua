@@ -1,9 +1,9 @@
 return {
-	-- change trouble config
+	-- plugin that show quicklist of diagnostics, symbols etc
 	"folke/trouble.nvim",
 
 	cmd = "Trouble",
-	opts = { use_diagnostic_signs = true },
+	opts = {},
 	keys = {
 		{
 			"<leader>xs",

@@ -58,10 +58,10 @@ Check for each:
 │
 ├───plugins
 │ conform.lua [p]
-│ lazydev.lua
+│ lazydev.lua [p]
 │ marks.lua [r]
 │ mini.lua
-│ neogen.lua
+│ neogen.lua [p]
 │ nvim-autopairs.lua
 │ nvim-cmp.lua [p]
 │ nvim-dap.lua
@@ -95,7 +95,7 @@ Check for each:
 ││ rainbow-delimiters.lua [p]
 ││ smear-cursor.lua [r]
 ││ todo-comments.lua [p]
-││ trouble.lua
+││ trouble.lua [p]
 ││ which-key.lua [p]
 
 ## errors

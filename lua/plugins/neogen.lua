@@ -13,7 +13,7 @@ return {
 			function()
 				require("neogen").generate()
 			end,
-			desc = "[N]eogen",
+			desc = "[N]eogen (annotations)",
 		},
 	},
 }

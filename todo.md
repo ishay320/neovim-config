@@ -64,7 +64,7 @@ Check for each:
 │ neogen.lua [p]
 │ nvim-autopairs.lua
 │ nvim-cmp.lua [p]
-│ nvim-dap.lua
+│ nvim-dap.lua [p]
 │ nvim-lspconfig.lua [p]
 │ nvim-treesitter.lua [p]
 │ remote-nvim.lua [p]

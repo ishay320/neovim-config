@@ -17,7 +17,7 @@ return {
 			function()
 				require("trouble").toggle("diagnostics")
 			end,
-			desc = "Toggle [D]iagnostics (Trouble)",
+			desc = "Toggle diagnostics (Trouble)",
 		},
 		{
 			"<leader>xt",

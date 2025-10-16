@@ -1,4 +1,55 @@
--- TODO: add a way to make per project configs that added to the defaults
+-- Command that generate .vscode/launch.json
+vim.api.nvim_create_user_command("DapConfig", function()
+	local vscode_dir = vim.fn.getcwd() .. "/.vscode"
+	local launch_file = vscode_dir .. "/launch.json"
+
+	if vim.fn.filereadable(launch_file) == 1 then
+		vim.notify("launch.json already exists at " .. launch_file)
+		return
+	end
+
+	if vim.fn.isdirectory(vscode_dir) == 0 then
+		vim.fn.mkdir(vscode_dir, "p")
+	end
+
+	-- Default launch.json template for C debugging
+	local launch_json = [[{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "args": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "cwd": "${workspaceFolder}",
+      "name": "Launch",
+      "program": "${workspaceFolder}/a.out",
+      "environment": [],
+      "type": "codelldb",
+      "stopAtEntry": false,
+      "request": "launch",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}]]
+
+	local file = io.open(launch_file, "w")
+	if file then
+		file:write(launch_json)
+		file:close()
+		vim.notify("Created " .. launch_file)
+	else
+		vim.notify("Error: Could not create " .. launch_file, vim.log.levels.ERROR)
+	end
+end, {
+	desc = "Create .vscode/launch.json for debugging",
+})
+
 return {
 	-- Debugging adapter protocol client for Neovim
 	"mfussenegger/nvim-dap",
@@ -19,6 +70,7 @@ return {
 		-- Setup Mason and Mason DAP
 		require("mason").setup()
 		require("mason-nvim-dap").setup({
+			automatic_installation = false,
 			ensure_installed = { "codelldb", "cpptools", "debugpy" },
 			automatic_setup = true,
 			handlers = {},
@@ -115,5 +167,18 @@ return {
 				stopOnEntry = true,
 			},
 		}
+
+		local function decode_jsonc(str, opts)
+			opts = opts or {}
+			-- Remove single-line comments (//)
+			str = str:gsub("//[^\n]*", "")
+			-- Remove multi-line comments (/* ... */)
+			str = str:gsub("/%*(.-)%*/", "")
+			-- Remove trailing commas in objects
+			str = str:gsub(",(%s*[}%]])", "%1")
+			-- Decode using vim.json.decode
+			return vim.json.decode(str, opts)
+		end
+		require("dap.ext.vscode").json_decode = decode_jsonc
 	end,
 }

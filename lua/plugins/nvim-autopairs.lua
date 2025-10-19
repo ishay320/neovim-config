@@ -1,5 +1,5 @@
 return {
-	-- automatically add brackets and also when typing them - jump on them
+	-- automatically add brackets and also when typing them - jumps them
 	"windwp/nvim-autopairs",
 
 	event = "InsertEnter",

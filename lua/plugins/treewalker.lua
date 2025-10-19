@@ -1,5 +1,7 @@
 return {
+	-- plugin for moving/swapping blocks on the code tree
 	"aaronik/treewalker.nvim",
+
 	opts = {},
 	keys = {
 		-- movement
@@ -9,9 +11,9 @@ return {
 		{ "<C-M-l>", "<cmd>Treewalker Right<cr>", mode = { "n", "v" }, silent = true },
 
 		-- swapping
-		{ "<M-S-k>", "<cmd>Treewalker SwapUp<cr>", mode = "n", silent = true },
-		{ "<M-S-j>", "<cmd>Treewalker SwapDown<cr>", mode = "n", silent = true },
-		{ "<M-S-h>", "<cmd>Treewalker SwapLeft<cr>", mode = "n", silent = true },
-		{ "<M-S-l>", "<cmd>Treewalker SwapRight<cr>", mode = "n", silent = true },
+		{ "<S-M-k>", "<cmd>Treewalker SwapUp<cr>", mode = "n", silent = true },
+		{ "<S-M-j>", "<cmd>Treewalker SwapDown<cr>", mode = "n", silent = true },
+		{ "<S-M-h>", "<cmd>Treewalker SwapLeft<cr>", mode = "n", silent = true },
+		{ "<S-M-l>", "<cmd>Treewalker SwapRight<cr>", mode = "n", silent = true },
 	},
 }

@@ -1,9 +1,9 @@
 return {
-	-- add icons to netrw
-	"prichrd/netrw.nvim",
+	-- add icons to netrw and git status
+	"ishay320/netrw.nvim",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
 
-	opts = {},
+	opts = { git = { enable = true } },
 }

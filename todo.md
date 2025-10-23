@@ -4,15 +4,11 @@
 
 - [ ] find way to grep files the best way
 
-## netrw
+## fix
 
-- [ ] show git info on file - U M R
-
----
-
-## future
-
-- [ ] distant
+- pass git credentials via remote
+- copy while in remote
+- add conda check for VENV
 
 ---
 
@@ -23,6 +19,7 @@
 https://github.com/nosduco/remote-sshfs.nvim
 https://github.com/Chayanon-Ninyawee/remote-lsp.nvim
 
+- distant
 - treesitter-context
 
 ## errors

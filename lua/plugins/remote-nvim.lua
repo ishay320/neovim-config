@@ -1,5 +1,23 @@
+if os.getenv("SSH_CLIENT") ~= nil then
+	local function noop()
+		return {}
+	end
+	vim.g.clipboard = {
+		name = "OSC 52",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		-- NOTE: OSC 52 paste is a security risk, so most terminals disable it
+		paste = {
+			["+"] = noop,
+			["*"] = noop,
+		},
+	}
+end
+
 return {
-	"amitds1997/remote-nvim.nvim",
+	"ishay320/remote-nvim.nvim",
 
 	version = "*",
 	dependencies = {

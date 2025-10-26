@@ -6,8 +6,7 @@
 
 ## fix
 
-- pass git credentials via remote
-- copy while in remote
+- pass copilot credentials via remote
 - add conda check for VENV
 
 ---

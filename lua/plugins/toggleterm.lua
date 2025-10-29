@@ -1,10 +1,21 @@
 -- Enhanced gf/gF support in terminals
 local function parse_line_under_cursor()
 	local word = vim.fn.expand("<cWORD>") -- get word under cursor
+	-- Try C style first (filename:lineno) using the word
 	local filepath, lineno = string.match(word, "^(.+):(%d+)")
-	if filepath then
+	if filepath and lineno then
 		return { filepath, lineno }
 	end
+
+	-- If not found, try Python style on the entire line
+	local line = vim.fn.getline(".")
+
+	-- Python error format: File "/path/to/file.py", line 107, in function_name
+	filepath, lineno = string.match(line, 'File%s+"([^"]+)"%s*,%s*line%s+(%d+)')
+	if filepath and lineno then
+		return { filepath, lineno }
+	end
+
 	word = vim.fn.expand("<cfile>")
 	if word ~= "" then
 		return word
@@ -26,7 +37,8 @@ local function go_to_file_terminal(jump_to_line)
 		filepath = result
 	end
 
-	require("toggleterm").toggle(0)
+	vim.cmd("wincmd p") -- jump to last window
+
 	vim.cmd("edit " .. filepath)
 	if jump_to_line and lineno then
 		vim.cmd(tostring(lineno))

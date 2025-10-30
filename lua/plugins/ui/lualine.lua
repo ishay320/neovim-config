@@ -40,14 +40,12 @@ local function autoformat_icon()
 	else
 		return " 󱩪 "
 	end
-	-- return " 󱩨 "
 end
 
 local function autoformat_select()
 	local options = {
 		"󱩤 On",
 		"󱩪 Off",
-		-- "󱩨 Git Diff",
 	}
 	vim.ui.select(options, {
 		prompt = "Select autoformat mode:",

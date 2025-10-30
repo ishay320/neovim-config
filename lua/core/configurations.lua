@@ -30,6 +30,7 @@ vim.opt.hlsearch = true
 -- Splits behavior
 vim.opt.splitright = true -- Configure how new splits should be opened
 vim.opt.splitbelow = true
+vim.opt.splitkeep = "screen"
 
 -- System integration
 vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!

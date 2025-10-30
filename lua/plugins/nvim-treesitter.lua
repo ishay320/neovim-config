@@ -7,7 +7,18 @@ return {
 	},
 	build = ":TSUpdate",
 	opts = {
-		ensure_installed = { "bash", "c", "cpp", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+		ensure_installed = {
+			"bash",
+			"c",
+			"cpp",
+			"html",
+			"lua",
+			"luadoc",
+			"markdown",
+			"markdown_inline",
+			"vim",
+			"vimdoc",
+		},
 		-- Autoinstall languages that are not installed when entering buffer
 		auto_install = true,
 		highlight = {

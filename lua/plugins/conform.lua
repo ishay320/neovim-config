@@ -40,7 +40,7 @@ return {
 		formatters = {
 			clang_format = {
 				prepend_args = {
-					"--style={ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 80, AlignConsecutiveAssignments: true, BreakBeforeBraces: Stroustrup}",
+					"--style={BasedOnStyle: Google, IndentWidth: 4, AlignConsecutiveAssignments: true}",
 				},
 			},
 		},

@@ -8,6 +8,8 @@ return {
 	-- do (diff obtain) - bring changes from the other file to the current file
 	-- dp (diff put)    - send changes from the current file to the other file
 	keys = {
+		{ "gh", ":diffget //2 <CR>", desc = "Git: get lhs of diff", silent = true },
+		{ "gl", ":diffget //3 <CR>", desc = "Git: get rhs of diff", silent = true },
 		{
 			"<leader>gg",
 			"<cmd>Git<cr>",

@@ -2,7 +2,7 @@
 local function parse_line_under_cursor()
 	local word = vim.fn.expand("<cWORD>") -- get word under cursor
 	-- Try C style first (filename:lineno) using the word
-	local filepath, lineno = string.match(word, "^(.+):(%d+)")
+	local filepath, lineno = string.match(word, "^(.-):(%d+):?")
 	if filepath and lineno then
 		return { filepath, lineno }
 	end

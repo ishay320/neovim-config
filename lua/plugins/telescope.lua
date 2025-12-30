@@ -1,8 +1,8 @@
 return {
 	-- Fuzzy Finder (files, lsp, etc)
 	"nvim-telescope/telescope.nvim",
+	tag = "v0.2.0",
 
-	branch = "0.1.x",
 	event = "VimEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim", -- required

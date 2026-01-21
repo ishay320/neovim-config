@@ -44,7 +44,7 @@ map(
 map("v", "<leader>s", ":s/", { desc = "[S]ubstitute in selection" })
 
 -- File explorer
-map("n", "-", vim.cmd.Ex, { desc = "Open file explorer" })
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open file explorer" })
 
 -- Exit terminal mode in the builtin terminal
 map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

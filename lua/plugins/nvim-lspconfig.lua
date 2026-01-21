@@ -130,6 +130,7 @@ return {
 			"bash-language-server", -- bash LSP
 			"shfmt", -- shell formatter
 			"clang-format",
+			"tree-sitter-cli", -- tree sitter compiler
 		})
 
 		-- Ensure the servers and tools above are installed

@@ -79,7 +79,8 @@ return {
 							vim.defer_fn(function()
 								vim.notify(
 									string.format("Installing parser for %s...", parser_name),
-									vim.log.levels.INFO
+									vim.log.levels.INFO,
+									{ title = "Treesitter" }
 								)
 								ts.install({ parser_name })
 							end, 0) -- Run immediately but asynchronously

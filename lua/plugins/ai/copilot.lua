@@ -34,11 +34,7 @@ return {
 		{
 			"<space>tc",
 			function()
-				if require("copilot.client").is_disabled() then
-					require("copilot.command").enable()
-				else
-					require("copilot.command").disable()
-				end
+				vim.cmd("Copilot toggle")
 			end,
 			desc = "Toggle Copilot Suggestion",
 		},

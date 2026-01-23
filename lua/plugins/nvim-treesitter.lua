@@ -10,15 +10,11 @@ return {
 			local ts = require("nvim-treesitter")
 			-- Install parsers on startup (non-blocking)
 			local parsers_to_install = {
-				"astro",
 				"bash",
 				"c",
 				"css",
 				"diff",
 				"go",
-				"gomod",
-				"gowork",
-				"gosum",
 				"graphql",
 				"html",
 				"javascript",
@@ -38,7 +34,6 @@ return {
 				"vim",
 				"vimdoc",
 				"yaml",
-				"ruby",
 				"gitcommit",
 			}
 
@@ -47,17 +42,7 @@ return {
 				ts.install(parsers_to_install)
 			end)
 
-			-- Enable highlighting for each filetype
-			for _, parser in ipairs(parsers_to_install) do
-				vim.api.nvim_create_autocmd("FileType", {
-					pattern = parser,
-					callback = function(event)
-						pcall(vim.treesitter.start, event.buf, parser)
-					end,
-				})
-			end
-
-			-- Auto-install missing parsers when opening new filetypes
+			-- Auto-install missing parsers when opening new filetypes and attach existing parsers
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function(event)
 					local bufnr = event.buf

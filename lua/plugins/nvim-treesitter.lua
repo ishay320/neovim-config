@@ -1,5 +1,4 @@
 return {
-
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
@@ -88,5 +87,9 @@ return {
 			multiwindow = true,
 			multiline_threshold = 1,
 		},
+	},
+	{
+		"fei6409/log-highlight.nvim",
+		opts = {},
 	},
 }

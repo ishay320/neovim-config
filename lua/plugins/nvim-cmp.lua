@@ -109,20 +109,20 @@ return {
 			},
 
 			-- Smart sorting based on context
-			sorting = {
-				priority_weight = 2,
-				comparators = {
-					cmp.config.compare.offset,
-					cmp.config.compare.exact,
-					cmp.config.compare.score,
-					cmp.config.compare.recently_used,
-					cmp.config.compare.locality,
-					cmp.config.compare.kind,
-					cmp.config.compare.sort_text,
-					cmp.config.compare.length,
-					cmp.config.compare.order,
-				},
-			},
+			-- sorting = {
+			-- 	priority_weight = 2,
+			-- 	comparators = {
+			-- 		cmp.config.compare.offset,
+			-- 		cmp.config.compare.exact,
+			-- 		cmp.config.compare.score,
+			-- 		cmp.config.compare.recently_used,
+			-- 		cmp.config.compare.locality,
+			-- 		cmp.config.compare.kind,
+			-- 		cmp.config.compare.sort_text,
+			-- 		cmp.config.compare.length,
+			-- 		cmp.config.compare.order,
+			-- 	},
+			-- },
 
 			mapping = cmp.mapping.preset.insert({
 				-- Select the [n]ext item
@@ -164,6 +164,7 @@ return {
 				{ name = "path" },
 				{ name = "calc" },
 				{ name = "lazydev", group_index = 0 }, -- from the 'lazydev.lua' file
+				{ name = "buffer", keyword_length = 4 }, -- start suggesting words when it is bigger then 4 chars
 			},
 		})
 

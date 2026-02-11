@@ -82,15 +82,10 @@ return {
 					"--background-index",
 					"--clang-tidy",
 					"--completion-parse=always",
-					"--completion-style=bundled",
-					"--cross-file-rename",
-					"--debug-origin",
-					"--enable-config", -- clangd 11+ supports reading from .clangd configuration file
-					"--folding-ranges",
+					"--completion-style=bundled", -- similar completion items combined - for overloading
 					"--function-arg-placeholders",
 					"--header-insertion=iwyu",
 					"--pch-storage=memory", -- could also be disk
-					"--suggest-missing-includes",
 					"-j=4", -- number of workers
 					"--log=info",
 					--[[ "--query-driver=/usr/bin/g++", ]]

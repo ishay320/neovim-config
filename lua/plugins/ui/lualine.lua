@@ -36,9 +36,9 @@ end
 
 local function autoformat_icon()
 	if vim.g.autoformat then
-		return " 󱩤 "
+		return "󱩤"
 	else
-		return " 󱩪 "
+		return "󱩪"
 	end
 end
 
@@ -72,8 +72,8 @@ return {
 		options = {
 			icons_enabled = true,
 			theme = "auto",
-			section_separators = { left = "", right = "" },
-			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
+			component_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -94,14 +94,14 @@ return {
 			},
 			lualine_x = {
 				{ autoformat_icon, on_click = autoformat_select },
-				{ "copilot", on_click = toggle_copilot },
+				{ "copilot", on_click = toggle_copilot, padding = { left = 0, right = 0 } },
 				{
 					"fileformat",
 					on_click = toggle_fileformat,
 					icons_enabled = true,
-					padding = { left = 1, right = 2 },
+					padding = { left = 0, right = 1 },
 				},
-				{ "filetype", on_click = choose_filetype, separator = "" },
+				{ "filetype", on_click = choose_filetype, separator = "", padding = { left = 0, right = 1 } },
 				{
 					"lsp_status",
 					on_click = function()

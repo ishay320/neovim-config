@@ -30,6 +30,7 @@ return {
 			python = { "black" },
 			markdown = { "prettier" },
 			json = { "prettier" },
+			jsonc = { "prettier" },
 			yaml = { "prettier" },
 			html = { "prettier" },
 			css = { "prettier" },
